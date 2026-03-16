@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Edit Profile</title>
+  </head>
+
+  <body class="editProfile_body">
+    <aside class="editProfile_aside">
+      <img src="/project/zedge.jpg" width="200" height="100%" />
+    </aside>
+
+    <main class="editProfile_main">
+      <header class="editProfile_header">
+        <a href="profile.html"><button>&larr;</button></a>
+      </header>
+      <div class="picture">
+        <img src="/project/download__9_-removebg-preview.png" />
+        <form>
+          <label for="accountPicture">Choose your account picture</label>
+          <br />
+          <input type="file" id="accountPicture" name="accountPicture" />
+        </form>
+      </div>
+
+      <div class="user_info">
+        <form>
+          <label for="nickname">Name</label>
+          <input type="text" id="nickname" name="nickname" />
+          <br />
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" />
+          <br />
+          <label for="bio">Bio</label>
+          <textarea id="bio" name="bio" rows="4"></textarea>
+        </form>
+      </div>
+      <button class="save_button">Save</button>
+    </main>
+  </body>
+</html>
