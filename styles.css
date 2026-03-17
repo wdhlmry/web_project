@@ -1,37 +1,38 @@
-:root{
+:root {
     --shadow: #250410 0px 1px 9px;
-    --color-border:#f5e4e6;
-    --text-color:#250410;
-    --background-color:#fbf6f6;
+    --color-border: #f5e4e6;
+    --text-color: #250410;
+    --background-color: #fbf6f6;
 }
 
 
-*{
+* {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 /*---------------------------Profile.html Page----------------------------*/
 
-.profile_body{
+.profile_body {
     display: grid;
     grid-template-columns: 1fr 3fr;
     background-color: var(--background-color);
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.profile_header{
+.profile_header {
     display: flex;
     padding: 20px;
     justify-content: space-between;
 }
 
-.profile_header h2{
+.profile_header h2 {
     color: var(--text-color);
     font-size: 20px;
 }
 
-.profile_header button{
+.profile_header button {
     border: none;
     font-size: 35px;
     background-color: var(--background-color);
@@ -39,22 +40,22 @@
     cursor: pointer;
 }
 
-.profile_main{
+.profile_main {
     margin: 0 auto;
-    padding:24px 0;
+    padding: 24px 0;
     width: 90%;
     margin-left: -0.5rem;
 }
 
-.profile_aside{
+.profile_aside {
     overflow-y: hidden;
 }
 
-.profile_aside img{
+.profile_aside img {
     background-position: center;
 }
 
-.profile_info{
+.profile_info {
     width: 100%;
     height: auto;
     display: flex;
@@ -63,16 +64,16 @@
     justify-content: center;
     padding: 0px 20px;
     gap: 1.5rem;
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     box-shadow: var(--shadow);
 }
 
-.profile_info img{
+.profile_info img {
     margin-bottom: -3rem;
 }
 
-.info_list{
+.info_list {
     list-style-type: none;
     display: flex;
     justify-content: center;
@@ -80,14 +81,14 @@
     padding-right: 2rem;
 }
 
-.settings_list{
+.settings_list {
     list-style-type: none;
     display: flex;
     justify-content: center;
     gap: 1rem;
 }
 
-.settings_list li{
+.settings_list li {
     background-color: var(--color-border);
     padding: 6px;
     border-radius: 8px;
@@ -98,45 +99,45 @@
     margin-right: 2rem;
 }
 
-.settings_list li a{
+.settings_list li a {
     text-decoration: none;
     color: var(--text-color);
 }
 
-.posts{
-    background-color: rgba(255,255,255,0.5);
+.posts {
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 20px;
     box-shadow: var(--shadow);
     margin-top: 2rem;
 }
 
-.posts h3{
+.posts h3 {
     text-align: left;
     padding: 20px;
     border-bottom: solid 1px #250410;
-    
+
 }
 
-.posts h4{
+.posts h4 {
     text-align: center;
     padding: 20px;
 }
 
 
-@media (max-width:767px){
-    .profile_main{
+@media (max-width:767px) {
+    .profile_main {
         margin: 0 auto;
     }
 
-    .profile_header button{
+    .profile_header button {
         font-size: 25px;
     }
 
 
 }
 
-@media (min-width:768px) and (max-width:1023px){
-    .profile_main{
+@media (min-width:768px) and (max-width:1023px) {
+    .profile_main {
         margin-left: 2rem;
     }
 }
@@ -147,7 +148,7 @@
 
 /*------------------------------------editProfile.html Page-----------------------------------*/
 
-.editProfile_body{
+.editProfile_body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: var(--text-color);
     display: grid;
@@ -156,7 +157,7 @@
 }
 
 
-.editProfile_main{
+.editProfile_main {
     margin: 0 auto;
     padding: 24px 0;
     width: 80%;
@@ -165,19 +166,20 @@
     gap: 1rem;
 }
 
-.user_info input, .user_info textarea{
-    background-color: rgba(255,255,255,0.5);
+.user_info input,
+.user_info textarea {
+    background-color: rgba(255, 255, 255, 0.5);
     box-shadow: var(--shadow);
-    border:1px;
+    border: 1px;
     border-radius: 8px;
 }
 
-.user_info form{
+.user_info form {
     display: flex;
     flex-direction: column;
 }
 
-.save_button{
+.save_button {
     width: 80px;
     margin: 6px auto;
     border-radius: 8px;
@@ -186,36 +188,37 @@
     cursor: pointer;
 }
 
-.save_button:hover{
+.save_button:hover {
     transform: translateY(-2px);
 }
 
 
-.picture, .picture form {
+.picture,
+.picture form {
     display: flex;
     flex-direction: column;
-     align-items: center;
+    align-items: center;
     justify-content: center;
 }
 
 
-.picture form input{
+.picture form input {
     margin-left: 5rem;
 }
 
-.editProfile_aside{
+.editProfile_aside {
     overflow-y: hidden;
 }
 
-.editProfile_aside img{
+.editProfile_aside img {
     background-position: center;
 }
 
-.editProfile_header{
+.editProfile_header {
     margin-bottom: -5rem;
 }
 
-.editProfile_header button{
+.editProfile_header button {
     border: none;
     font-size: 35px;
     background-color: var(--background-color);
@@ -225,13 +228,191 @@
     margin-top: 12px;
 }
 
-@media (min-width:0px) and (max-width:1023px){
-    .editProfile_header button{
+@media (min-width:0px) and (max-width:1023px) {
+    .editProfile_header button {
         margin-left: -1rem;
     }
 
-    .editProfile_header{
+    .editProfile_header {
         margin-bottom: -3.5rem;
     }
 }
 
+
+/*------------------------------------login.html Page-----------------------------------*/
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    margin: 0;
+}
+
+.login-page {
+    min-height: 100vh;
+}
+
+.login-main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 950px;
+    width: 100%;
+    background-color: var(--background-color);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.login-left {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: var(--text-color);
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: var(--shadow);
+}
+
+.login-left h1{
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.login-left p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.login-card{
+    padding: 50px 40px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.5);;
+}
+
+.login-card h2{
+    margin: 0 0 10px 0;
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.subtitle {
+    margin-bottom: 25px;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input{
+    padding: 13px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group input:focus {
+    border-color: var(--text-color);
+    box-shadow: 0 0 0 3px rgba(37, 4, 16, 0.1);
+}
+
+.form-options{
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-label {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   font-size: 0.95rem;
+   color: var(--text-color);
+}
+
+.login-btn{
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 10px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+}
+
+.register-text {
+   text-align: center;
+   margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-color);
+}
+
+.register-text a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-text a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: center;
+    min-height: 20px;
+}
+
+@media (max-width: 767px) {
+    .login-container{
+        grid-template-columns: 1fr;
+    }
+
+    .login-left{
+        text-align: center;
+        padding: 35px 25px;
+    }
+
+    .login-left h1{
+        font-size: 2rem;
+    }
+
+    .login-card{
+        padding: 35px 25px;
+    }
+}
