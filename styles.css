@@ -293,14 +293,14 @@ body {
     line-height: 1.6;
 }
 
-.login-card{
+.login-card {
     padding: 50px 40px ;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background-color: rgba(255, 255, 255, 0.5);;
 }
-
+/* when i add .register-card below its affects login page */
 .login-card h2{
     margin: 0 0 10px 0;
     font-size: 2rem;
@@ -357,7 +357,7 @@ body {
    color: var(--text-color);
 }
 
-.login-btn{
+.login-btn {
     background-color: var(--text-color);
     color: var(--background-color);
     border: none;
