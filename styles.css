@@ -349,16 +349,16 @@ main {
     flex-direction: column;
 }
 
-.save_button {
+input[type="submit"] {
     width: 80px;
-    margin: 6px auto;
+    margin: 11px auto;
     border-radius: 8px;
     background-color: var(--text-color);
     color: var(--background-color);
     cursor: pointer;
 }
 
-.save_button:hover {
+input[type="submit"]:hover {
     transform: translateY(-2px);
 }
 
