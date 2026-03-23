@@ -409,7 +409,7 @@ input[type="submit"]:hover {
 }
 
 
-/*------------------------------------login.html Page-----------------------------------*/
+/*------------------------------------login.html & register.html Page-----------------------------------*/
 
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -419,11 +419,12 @@ body {
     margin: 0;
 }
 
-.login-page {
+.login-page,
+.register-page {
     min-height: 100vh;
 }
 
-.login-main {
+.login-main, .register-main {
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -431,7 +432,7 @@ body {
     padding: 20px;
 }
 
-.login-container {
+.login-container, .register-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 950px;
@@ -442,7 +443,7 @@ body {
     box-shadow: var(--shadow);
 }
 
-.login-left {
+.login-left, .register-left {
     background-color: rgba(255, 255, 255, 0.5);
     color: var(--text-color);
     padding: 50px 40px;
@@ -452,26 +453,27 @@ body {
     box-shadow: var(--shadow);
 }
 
-.login-left h1{
+.login-left h1, .register-left h1{
     margin: 0;
     font-size: 2.5rem;
 }
 
-.login-left p {
+.login-left p,.register-left p{
     margin: 0;
     font-size: 1.05rem;
     line-height: 1.6;
 }
 
-.login-card {
+.login-card, .register-card {
     padding: 50px 40px ;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.5);;
+    background-color: rgba(255, 255, 255, 0.5);
+
 }
-/* when i add .register-card below its affects login page */
-.login-card h2{
+
+.login-card h2, .register-card h2{
     margin: 0 0 10px 0;
     font-size: 2rem;
     color: var(--text-color);
@@ -483,7 +485,7 @@ body {
     color: var(--text-color);
 }
 
-.login-form {
+.login-form, .register-form {
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -521,13 +523,14 @@ body {
 
 .checkbox-label {
    display: flex;
+   padding: 10px;
    align-items: center;
    gap: 8px;
    font-size: 0.95rem;
    color: var(--text-color);
 }
 
-.login-btn {
+.login-btn, .register-btn {
     background-color: var(--text-color);
     color: var(--background-color);
     border: none;
@@ -539,24 +542,27 @@ body {
     transition: 0.3s ease;
 }
 
-.login-btn:hover {
+.login-btn:hover,
+.register-btn:hover {
     transform: translateY(-2px);
 }
 
-.register-text {
+.register-text, .login-text {
+    padding: 10px;
    text-align: center;
-   margin: 0;
-    font-size: 0.95rem;
-    color: var(--text-color);
+   font-size: 0.95rem;
+   color: var(--text-color);
 }
 
-.register-text a {
+.register-text a,
+.login-text a {
     color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
 }
 
-.register-text a:hover {
+.register-text a:hover,
+.login-text a:hover {
     text-decoration: underline;
 }
 
@@ -569,20 +575,24 @@ body {
 }
 
 @media (max-width: 767px) {
-    .login-container{
+    .login-container,
+    .register-container{
         grid-template-columns: 1fr;
     }
 
-    .login-left{
+    .login-left,
+    .register-left{
         text-align: center;
         padding: 35px 25px;
     }
 
-    .login-left h1{
+    .login-left h1,
+    .register-left h1{
         font-size: 2rem;
     }
 
-    .login-card{
+    .login-card,
+    .register-card{
         padding: 35px 25px;
     }
 }
