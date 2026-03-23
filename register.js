@@ -1,0 +1,43 @@
+let users = JSON.parse(localStorage.getItem("users"))|| []; // Restore an existing array or creat new one
+
+const regBtn = document.querySelector(".register-btn");
+regBtn.addEventListener("click",addUser);
+
+function addUser(){
+    const email = document.getElementById("register-email").value;
+    const username = document.getElementById("register-username").value;
+    const password = document.getElementById("register-password").value;
+
+    if(users.some(u=>u.email === email)){ // to check if the email is exist
+        alert("This Email already Registerd");
+        return;
+    }
+    const id = users.length > 0 ? users[users.length - 1].id + 1 : 1; 
+
+    let nickname = "";
+    let bio = "";      
+    let profilePic = ""; 
+    let followers = [];  
+    let following = [];  
+    
+    const user = {
+        email: email,
+        username: username,
+        password: password,
+        id: id,
+        nickname: nickname,
+        bio: bio,
+        profilePic: profilePic,
+        followers: followers,
+        following: following
+    }
+    users.push(user);
+    localStorage.setItem("users",JSON.stringify(users));
+    alert("Account created successfully!");
+
+document.getElementById("register-email").value = "";
+document.getElementById("register-username").value = "";
+document.getElementById("register-password").value = "";
+
+}
+
