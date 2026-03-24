@@ -3,6 +3,8 @@
     --color-border: #f5e4e6;
     --text-color: #250410;
     --background-color: #fbf6f6;
+    --primary: #250410;
+    --primary-dark: #3a0a18;
 }
 
 
@@ -25,8 +27,13 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: var(--primary);
-    color: #666666;
+    color: #ffffff;
     padding: 15px 25px;
+}
+.headline {
+    font-size: 24px;
+    font-weight: bold;
+    color:#ffffff
 }
 
 .navbar h1 {
@@ -40,7 +47,7 @@ body {
 
 .navbar a,
 .navbar button {
-    color: rgb(0, 0, 0);
+    color: rgb(233, 228, 228);
     text-decoration: none;
     border: none;
     background: none;
@@ -67,10 +74,10 @@ main {
     gap: 10px;
     width: 100%;
     max-width: 600px;
-    background-color: rgba(106, 157, 184, 0.5);
+    background-color:black;
     padding: 20px;
     border-radius: 20px;
-    box-shadow: var(--shadow);
+    
 }
 
 .create-post textarea {
@@ -87,7 +94,7 @@ main {
     align-self: flex-end;
     padding: 10px 20px;
     background-color: var(--primary);
-    color: rgb(53, 158, 207);
+    color: rgb(255, 255, 255);
     border: none;
     border-radius: 12px;
     cursor: pointer;
@@ -95,7 +102,7 @@ main {
 }
 
 .create-post button:hover {
-    background-color: var(--primary-dark);
+    background-color: rgba(255, 255, 255, 0.186) ;
 }
 
 #feed {
@@ -104,17 +111,6 @@ main {
     gap: 20px;
     width: 100%;
     max-width: 600px;
-}
-
-.post {
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 15px;
-    border-radius: 20px;
-    box-shadow: var(--shadow);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    transition: 0.2s;
 }
 
 .post:hover {
@@ -166,6 +162,25 @@ main {
 .post small {
     font-size: 12px;
     color: #666;
+}
+
+.footer {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+    box-shadow: var(--shadow);
+}
+
+.footer a {
+    color: var(--background-color);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer a:hover {
+    opacity: 0.8;
 }
 
 @media (max-width: 767px) {
