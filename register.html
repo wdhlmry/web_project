@@ -5,36 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="styles.css">
+     
+
 
 </head>
+
 <body class ="register-page">
     <main class="register-main">
         <section class="register-container">
             <div class="register-left">
-                <h1>Welcome</h1>
-                <p>Register to continue to your profile</p>
+                <h1>Join Us!</h1>
+                <p>Create your account and let’s get started</p>
             </div>
 
             <div class="register-card">
                 <h2>Registration</h2>
-                <p class="subtitle">Please enter the follwoing information</p>
+                <p class="subtitle">Please fill in your details to create your account.</p>
             
 
                 <form action="/submit" method="post" class="register-form">
 
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Enter your email">
+                        <label for="register-email">Email</label>
+                        <input type="email" name="email" id="register-email" placeholder="Enter your email">
                     </div>
 
                     <div class="form-group">
-                        <label for="username">Username</label>
-                        <input type="text" name="username" id="username" placeholder="Enter your username">
+                        <label for="register-username">Username</label>
+                        <input type="text" name="username" id="register-username" placeholder="Enter your username">
                     </div>
 
                     <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Enter your password">
+                        <label for="register-password">Password</label>
+                        <input type="password" name="password" id="register-password" placeholder="Enter your password">
                     </div>
                     
                     <div class="form-options">
@@ -47,7 +50,7 @@
             
                 <button type="submit" class="register-btn">Register</button>
                 <p class="login-text">
-                    Have an account?<a href="login.html">Login here</a>
+                    Have an account? <a href="login.html">Login here</a>
                 </p>
             </div>
         </section>
@@ -61,5 +64,8 @@
         })
 
     </script>
+
+    
+    <script src="register.js"></script>
 </body>
 </html>
