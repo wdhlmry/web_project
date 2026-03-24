@@ -15,7 +15,7 @@
 }
 /*---------------------------index.html Page----------------------------*/
 
-body {
+index-body {
     font-family: 'Lucida Sans', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
@@ -60,7 +60,7 @@ body {
     text-decoration: underline;
 }
 
-main {
+.index-main {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -188,7 +188,7 @@ main {
         font-size: 18px;
     }
 
-    main {
+    .index-main {
         padding: 10px;
     }
 
@@ -426,7 +426,7 @@ input[type="submit"]:hover {
 
 /*------------------------------------login.html & register.html Page-----------------------------------*/
 
-body {
+.login-page {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background: var(--background-color);
     color: var(--text-color);

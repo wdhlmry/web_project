@@ -1,37 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MySocial</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-
-<body>
+  <body class="index-body">
     <nav class="navbar">
-        <h1>MySocial</h1>
-        <div>
-            <a href="profile.html">Profile</a>
-            <button id="logout-btn">Logout</button>
-        </div>
+      <h1>MySocial</h1>
+      <div>
+        <a href="profile.html">Profile</a>
+        <button id="logout-btn">Logout</button>
+      </div>
     </nav>
-<main>
-    <section class="create-post">
+    <main class="index-main">
+      <section class="create-post">
         <div class="headline">
-            <h2>Create Post</h2>
+          <h2>Create Post</h2>
         </div>
-        
-        <textarea id="post-content" placeholder="What's on your mind?"></textarea>
-        <button id="post-btn">Post</button>
-    </section>
 
-    <section id="feed"></section>
-</main>
+        <textarea
+          id="post-content"
+          placeholder="What's on your mind?"
+        ></textarea>
+        <button id="post-btn">Post</button>
+      </section>
+
+      <section id="feed"></section>
+    </main>
     <script src="app.js"></script>
 
     <footer class="footer">
-    <p>© 2026 MySocial. All rights reserved.</p> 
-</footer>
-</body>
+      <p>© 2026 MySocial. All rights reserved.</p>
+    </footer>
+  </body>
 </html>
