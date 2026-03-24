@@ -1,3 +1,4 @@
+//Displaying Current logged-in user
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
 if(!currentUser){

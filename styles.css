@@ -13,9 +13,77 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/*---------------------------------Home.html Page-------------------------------------*/
+.home_body{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: #FEFCEF;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home_main{
+    background-color: #66001F;
+    margin: 70px auto;
+    padding: 24px 0;
+    width: 60%;
+    border: 2px #3a0a18 solid;
+    border-radius: 50% 10% 50% 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow:rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; ;
+}
+
+.home_buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.home_register{
+    background-color: var(--primary);
+    color:var(--background-color);
+    padding: 6px;
+    border-radius: 8px;
+    border: none;
+    width: 200px;
+    height: auto;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+}
+
+.home_login{
+     background-color: var(--color-border);
+    padding: 6px;
+    border-radius: 8px;
+    border: none;
+    width: 200px;
+    height: auto;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+}
+
+.home_main pre{
+    margin-left: -12rem;
+    font-size: 40px;
+    color: #FEFCEF;
+}
+
+
+
+
+
+
+
+/*----------------------------------------------------------------------*/
+
 /*---------------------------index.html Page----------------------------*/
 
-index-body {
+.index-body {
     font-family: 'Lucida Sans', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
@@ -265,6 +333,7 @@ index-body {
     justify-content: center;
     gap: 2rem;
     padding-right: 2rem;
+    margin-left: 2rem;
 }
 
 .settings_list {
@@ -282,12 +351,27 @@ index-body {
     height: auto;
     text-align: center;
     margin-bottom: 2rem;
-    margin-right: 2rem;
+    margin-right: 1rem;
 }
 
 .settings_list li a {
     text-decoration: none;
     color: var(--text-color);
+}
+
+#follow_button{
+    background-color: var(--color-border);
+    padding: 6px;
+    border-radius: 8px;
+    border: none;
+    width: 120px;
+    height: auto;
+    text-align: center;
+    margin-bottom: -0.5rem;
+    margin-right: 1rem;
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    cursor: pointer;
 }
 
 .posts {
@@ -429,10 +513,14 @@ input[type="submit"]:hover {
 
 .login-page {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background: var(--background-color);
+    background-image: url(/images/zedge.jpg);
     color: var(--text-color);
     min-height: 100vh;
     margin: 0;
+}
+
+.register-page{
+    background-image: url(/images/zedge.jpg);
 }
 
 .login-page,
