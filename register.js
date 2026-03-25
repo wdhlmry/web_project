@@ -1,7 +1,10 @@
 let users = JSON.parse(localStorage.getItem("users"))|| []; // Restore an existing array or creat new one
 
-const regBtn = document.querySelector(".register-btn");
-regBtn.addEventListener("click",addUser);
+const regForm = document.querySelector(".register-form");
+regForm.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    addUser();
+});
 
 function addUser(){
     const email = document.getElementById("register-email").value;
@@ -38,6 +41,7 @@ function addUser(){
 document.getElementById("register-email").value = "";
 document.getElementById("register-username").value = "";
 document.getElementById("register-password").value = "";
+window.location.href = "login.html";
 
 }
 

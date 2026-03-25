@@ -23,21 +23,23 @@
                 <p class="subtitle">Please fill in your details to create your account.</p>
             
 
-                <form action="/submit" method="post" class="register-form">
+                <form action="#"class="register-form">
 
                     <div class="form-group">
                         <label for="register-email">Email</label>
-                        <input type="email" name="email" id="register-email" placeholder="Enter your email">
+                        <input type="email" name="email" id="register-email" placeholder="Enter your email" required>
                     </div>
 
                     <div class="form-group">
                         <label for="register-username">Username</label>
-                        <input type="text" name="username" id="register-username" placeholder="Enter your username">
+                        <input type="text" name="username" id="register-username" placeholder="Enter your username" required>
                     </div>
 
                     <div class="form-group">
                         <label for="register-password">Password</label>
-                        <input type="password" name="password" id="register-password" placeholder="Enter your password">
+                        <input type="password" name="password" id="register-password" placeholder="Enter your password"
+                        pattern="(?=.*[A-Z])(?=.*[a-z]).{6,}" title="Password must be at least 6 charecters and includ both uppercase and lowercase letters "
+                        required>
                     </div>
                     
                     <div class="form-options">
@@ -46,9 +48,10 @@
                             Show Password
                         </label>
                     </div>
+                    <button type="submit" class="register-btn">Register</button>
                 </form> 
             
-                <button type="submit" class="register-btn">Register</button>
+                
                 <p class="login-text">
                     Have an account? <a href="login.html">Login here</a>
                 </p>

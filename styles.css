@@ -549,7 +549,7 @@ input[type="submit"]:hover {
 
 /*------------------------------------login.html & register.html Page-----------------------------------*/
 
-.login-page {
+.login-page, .register-page {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-image: url(/images/zedge.jpg);
     color: var(--text-color);
@@ -557,9 +557,6 @@ input[type="submit"]:hover {
     margin: 0;
 }
 
-.register-page{
-    background-image: url(/images/zedge.jpg);
-}
 
 .login-page,
 .register-page {
