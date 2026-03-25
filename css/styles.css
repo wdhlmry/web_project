@@ -423,6 +423,24 @@ footer {
     padding: 20px;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* this pushes footer down */
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+}
 
 @media (max-width:767px) {
     .profile_main {
