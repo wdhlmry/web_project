@@ -6,6 +6,10 @@ function getUsers() {
   return users ? JSON.parse(users) : [];
 }
 
+// function saveUsers(users) {
+//   localStorage.setItem(USERS, JSON.stringify(users));
+// }
+
 function setCurrentUser(user) {
   localStorage.setItem(CURRENT_USER, JSON.stringify(user));
 }
@@ -29,7 +33,7 @@ function clearMessage(elementId) {
   messageElement.textContent = "";
 }
 
-function redirectIfLoggedIN() {
+function redirectIfToLogedIn() {
   const currentUser = getCurrentUser();
   if (currentUser) {
     window.location.href = "../html/index.html"; //if it works
@@ -43,27 +47,22 @@ if (loginForm) {
     e.preventDefault();
     clearMessage("errorMessage");
 
-    const emailorUsername = document.getElementById("email").value.trim().toLowerCase();
+    const email = document.getElementById("email").value.trim().toLowerCase();
     const password = document.getElementById("password").value;
 
-    if (!emailorUsername || !password) {
-      showMessage("errorMessage", "email/username and password is Required");
+    if (!email || !password) {
+      showMessage("errorMessage", "email and password is Required");
       return;
     }
 
     const users = getUsers();
 
     const user = users.find(
-  (u) =>
-    (
-      (u.email && u.email.toLowerCase() === emailorUsername) ||
-      (u.username && u.username.toLowerCase() === emailorUsername)
-    ) &&
-    u.password === password
-);
+      (u) => u.email.toLowerCase() === email && u.password === password,
+    );
 
     if (!user) {
-      showMessage("errorMessage", "Invalid email/username or password !");
+      showMessage("errorMessage", "Invalid email or password !");
       return;
     }
     setCurrentUser(user);
@@ -71,7 +70,7 @@ if (loginForm) {
 
     setTimeout(() => {
       window.location.href = "../html/index.html";
-    }, 500);
+    }, 1500);
   });
 }
 
@@ -84,4 +83,4 @@ if (showPassword && passwordInput) {
   });
 }
 
-redirectIfLoggedIN  ();
+redirectIfToLogedIn();
