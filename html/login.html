@@ -20,7 +20,7 @@
                 <h2>Login</h2>
                 <p class="subtitle">Please enter your details to continue</p>
 
-                <form class="login-form">
+                <form class="login-form" id="loginForm">
 
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -52,15 +52,7 @@
         </section>
     </main>
 
-    <script>
-        const showPassword = document.getElementById('showPassword');
-        const passwordInput = document.getElementById('password');
-
-        showPassword.addEventListener("change", function () {
-            passwordInput.type = this.checked ? "text" : "password";
-        })
-
-    </script>
+    <script src="../javascript/login.js"></script>
 </body>
 
 </html>

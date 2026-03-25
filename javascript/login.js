@@ -1,39 +1,22 @@
-const USERS_KEY = "users";
-const CURRENT_USER_KEY = "currentUser";
+const USERS = "users";
+const CURRENT_USER = "currentUser";
 
 function getUsers() {
-  const users = localStorage.getItem(USERS_KEY);
+  const users = localStorage.getItem(USERS);
   return users ? JSON.parse(users) : [];
 }
 
-function saveUsers(users) {
-  localStorage.setItem(USERS_KEY, JSON.stringify(users));
-}
+// function saveUsers(users) {
+//   localStorage.setItem(USERS, JSON.stringify(users));
+// }
 
 function setCurrentUser(user) {
-  localStorage.setItem(CURRENT_USER_KEY, JSON.stringify(user));
+  localStorage.setItem(CURRENT_USER, JSON.stringify(user));
 }
 
 function getCurrentUser() {
-  const user = localStorage.getItem(CURRENT_USER_KEY);
+  const user = localStorage.getItem(CURRENT_USER);
   return user ? JSON.parse(user) : null;
-}
-
-function logoutUser() {
-  localStorage.removeItem(CURRENT_USER_KEY);
-  window.location.href = "login.html";
-}
-
-function generateUserId() {
-  return Date.now().toString();
-}
-
-function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
-function isStrongPassword(password) {
-  return password.length >= 6;
 }
 
 function showMessage(elementId, message, type = "error") {
@@ -46,84 +29,15 @@ function showMessage(elementId, message, type = "error") {
 function clearMessage(elementId) {
   const messageElement = document.getElementById(elementId);
 
-  if (!messageElement) return;
+  if (!messageElement) return; //nothing to clear
   messageElement.textContent = "";
 }
 
-/////////////////////////////////////////////////////////////////////////////////
-
-const registerForm = document.getElementById("registerForm");
-if (registerForm) {
-  registerForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    clearMessage("registerMessage");
-
-    const username = document.getElementById("registerUsername").value.trim();
-    const name = document.getElementById("registerName").value.trim();
-    const email = document.getElementById("registerEmail").value.trim();
-    const password = document.getElementById("registerPassword").value;
-
-    if (!username || !name || !email || !password) {
-      showMessage("registerMessage", "All fields are required.");
-      return;
-    }
-
-    if (!isValidEmail(email)) {
-      showMessage("registerMessage", "Invalid email format.");
-      return;
-    }
-
-    if (!isStrongPassword(password)) {
-      showMessage(
-        "registerMessage",
-        "Password must be at least 6 characters long.",
-      );
-      return;
-    }
-
-    const confirmPassword = document.getElementById('registerConfirmPassword').value;
-    if (password !== confirmPassword) {
-      showMessage("registerMessage", "Passwords do not match.");
-      return;
-    }
-
-    const users = getUsers();
-
-    const existingUser = users.find(
-      (u) => u.username === username || u.email === email,
-    );
-    if (existingUser) {
-      showMessage("registerMessage", "Username or email already exists.");
-      return;
-    }
-
-    const newUser = {
-      id: generateUserId(),
-      username: username,
-      name: name,
-      email: email,
-      password: password,
-      bio: "Hello! i am new here.",
-      profilePicture: "default-profile.png",
-      followers: [],
-      following: [],
-      posts: [],
-    };
-
-    users.push(newUser);
-    saveUsers(users);
-
-    showMessage(
-      "registerMessage",
-      "Registration successful! You can now log in.",
-      "success",
-    );
-
-    setTimeout(() => {
-      window.location.href = "../html/login.html";
-    }, 2000);
-  });
+function redirectIfToLogedIn() {
+  const currentUser = getCurrentUser();
+  if (currentUser) {
+    window.location.href = "../html/index.html"; //if it works
+  }
 }
 
 const loginForm = document.getElementById("loginForm");
@@ -131,57 +45,42 @@ const loginForm = document.getElementById("loginForm");
 if (loginForm) {
   loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
+    clearMessage("errorMessage");
 
-    clearMessage("loginMessage");
-    const usernameOrEmail = document
-      .getElementById("loginUsername")
-      .value.trim();
-    const password = document.getElementById("loginPassword").value;
+    const email = document.getElementById("email").value.trim().toLowerCase();
+    const password = document.getElementById("password").value;
 
-    if (!usernameOrEmail || !password) {
-      showMessage("loginMessage", "All fields are required.");
+    if (!email || !password) {
+      showMessage("errorMessage", "email and password is Required");
       return;
     }
 
     const users = getUsers();
+
     const user = users.find(
-      (u) =>
-        (u.username === usernameOrEmail || u.email === usernameOrEmail) &&
-        u.password === password,
+      (u) => u.email.toLowerCase() === email && u.password === password,
     );
 
     if (!user) {
-      showMessage("loginMessage", "Invalid username/email or password.");
+      showMessage("errorMessage", "Invalid email or password !");
       return;
     }
-
     setCurrentUser(user);
-    window.location.href = "../html/index.html";
-
-    showMessage("loginMessage", "Login successful! Redirecting...", "success");
+    showMessage("errorMessage", "Login is successful", "success");
 
     setTimeout(() => {
-      window.location.href = "index.html";
-    }, 2000);
+      window.location.href = "../html/index.html";
+    }, 1500);
   });
 }
 
-function requireLogin() {
-  const currentUser = getCurrentUser();
-  if (!currentUser) {
-    window.location.href = "../html/login.html";
-  }
+const showPassword = document.getElementById("showPassword");
+const passwordInput = document.getElementById("password");
+
+if (showPassword && passwordInput) {
+  showPassword.addEventListener("change", function () {
+    passwordInput.type = this.checked ? "text" : "password";
+  });
 }
 
-function redirectIfLoggedIn() {
-  const currentUser = getCurrentUser();
-
-  if (currentUser) {
-    window.location.href = "../html/index.html";
-  }
-}
-
-window.logoutUser = logoutUser;
-window.requireLogin = requireLogin;
-window.redirectIfLoggedIn = redirectIfLoggedIn;
-window.getCurrentUser = getCurrentUser;
+redirectIfToLogedIn();
