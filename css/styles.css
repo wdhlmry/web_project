@@ -315,12 +315,14 @@ footer {
 .profile_header {
     display: flex;
     padding: 20px;
-    justify-content: space-between;
+    justify-content: left;
+    gap: 20rem;
 }
 
 .profile_header h2 {
     color: var(--text-color);
     font-size: 20px;
+    padding-top: 7px;
 }
 
 .profile_header button {
