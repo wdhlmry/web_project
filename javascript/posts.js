@@ -47,6 +47,7 @@ function addPostToFeed(post) {
     postDiv.innerHTML = `
         <p>${post.text}</p>
         <small>${post.date}</small>
+        
     `;
 
     feed.appendChild(postDiv);

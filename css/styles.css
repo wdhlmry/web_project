@@ -233,6 +233,7 @@
 .post-actions {
     display: flex;
     gap: 10px;
+    padding: 15px;
 }
 
 .post-actions button {
@@ -247,7 +248,7 @@
 }
 
 .post-actions button:hover {
-    background-color:white;
+    background-color:#67182f;
 }
 
 .comment-box {
