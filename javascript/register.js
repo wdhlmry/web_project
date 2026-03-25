@@ -11,8 +11,8 @@ function addUser(){
     const username = document.getElementById("register-username").value;
     const password = document.getElementById("register-password").value;
 
-    if(users.some(u=>u.email === email)){ // to check if the email is exist
-        alert("This Email already Registerd");
+    if(users.some(u=>u.username === username)){ // to check if the username is exist
+        alert("This username already Registerd");
         return;
     }
     const id = users.length > 0 ? users[users.length - 1].id + 1 : 1; 
