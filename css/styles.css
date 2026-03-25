@@ -211,8 +211,8 @@
 .post{
     border-radius: 10px;
     box-shadow: var(--shadow);
-    width:200px;
-    height: 100px;
+    width:100%;
+    height: 90px;
 }
 .post:hover {
     transform: translateY(-3px);
@@ -463,6 +463,7 @@ main {
     padding: 10px;
 }
 
+
 @media (max-width:767px) {
     .profile_main {
         margin: 0 auto;
@@ -473,6 +474,20 @@ main {
     }
 
 
+}
+.more_btn {
+    display: none;
+    background-color: #fff;   /* White background */
+    color: #555;               /* Dark text */
+    border: 1px solid #ccc;    /* Light border */
+    border-radius: 4px;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background-color: #f0f0f0; /* Slight gray on hover */
 }
 
 @media (min-width:768px) and (max-width:1023px) {
