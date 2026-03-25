@@ -121,7 +121,7 @@ if (registerForm) {
     );
 
     setTimeout(() => {
-      window.location.href = "login.html";
+      window.location.href = "../html/login.html";
     }, 2000);
   });
 }
@@ -156,7 +156,7 @@ if (loginForm) {
     }
 
     setCurrentUser(user);
-    window.location.href = "index.html";
+    window.location.href = "../html/index.html";
 
     showMessage("loginMessage", "Login successful! Redirecting...", "success");
 
@@ -169,7 +169,7 @@ if (loginForm) {
 function requireLogin() {
   const currentUser = getCurrentUser();
   if (!currentUser) {
-    window.location.href = "login.html";
+    window.location.href = "../html/login.html";
   }
 }
 
@@ -177,7 +177,7 @@ function redirectIfLoggedIn() {
   const currentUser = getCurrentUser();
 
   if (currentUser) {
-    window.location.href = "index.html";
+    window.location.href = "../html/index.html";
   }
 }
 

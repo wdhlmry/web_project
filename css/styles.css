@@ -88,6 +88,12 @@
     margin-left: -1.5rem;
 }
 
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 @media (max-width:768px){
     .home_main{
         width: 80%;

@@ -41,7 +41,7 @@ function addUser(){
 document.getElementById("register-email").value = "";
 document.getElementById("register-username").value = "";
 document.getElementById("register-password").value = "";
-window.location.href = "login.html";
+window.location.href = "../html/login.html";
 
 }
 

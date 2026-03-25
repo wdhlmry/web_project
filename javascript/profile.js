@@ -56,7 +56,7 @@ if(document.getElementsByClassName("edit_form")){
 
         alert("Profile updated!");
 
-        window.location.href = "profile.html";
+        window.location.href = "../html/profile.html";
 
     });
 
