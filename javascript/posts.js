@@ -31,27 +31,9 @@ function addPostToFeed(post) {
     postDiv.classList.add("post");
 
     postDiv.innerHTML = `
-        <div class="post-content">
-            <p>${post.text}</p>
-            <small>${post.date}</small>
-        </div>
-        <div class="post-options">
-            <button class="more-btn">...</button>
-            <button class="delete-btn">Delete</button>
-        </div>
+        <p>${post.text}</p>
+        <small>${post.date}</small>
     `;
-
-    const moreBtn = postDiv.querySelector(".more-btn");
-    const deleteBtn = postDiv.querySelector(".delete-btn");
-    deleteBtn.style.display = "none";
-
-    moreBtn.addEventListener("click", () => {
-        deleteBtn.style.display = deleteBtn.style.display === "none" ? "inline-block" : "none";
-    });
-
-    deleteBtn.addEventListener("click", () => {
-        deletePost(post.id);
-    });
 
     feed.appendChild(postDiv);
 }
