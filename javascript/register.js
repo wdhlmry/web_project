@@ -45,3 +45,10 @@ window.location.href = "../html/login.html";
 
 }
 
+    const showPassword = document.getElementById('showPassword');
+    const passwordInput = document.getElementById('register-password');
+
+    showPassword.addEventListener("change", function () {
+        passwordInput.type = this.checked ? "text" : "password";
+    })
+
