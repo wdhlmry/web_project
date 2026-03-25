@@ -208,7 +208,12 @@
     width: 100%;
     max-width: 600px;
 }
-
+.post{
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    width:200px;
+    height: 100px;
+}
 .post:hover {
     transform: translateY(-3px);
 }
@@ -218,10 +223,12 @@
     cursor: pointer;
 }
 
-.post p {
+.post p,.post small {
+    padding: 5px;
     font-size: 14px;
     color: var(--text-color);
 }
+
 
 .post-actions {
     display: flex;
