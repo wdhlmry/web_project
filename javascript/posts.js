@@ -7,12 +7,16 @@ document.addEventListener("DOMContentLoaded", loadPosts);
 
 postBtn.addEventListener("click", () => {
   const content = postContent.value.trim();
-  const file = postImage.files[0];
+  const file = postImage ? postImage.files[0]  : null;
 
   if (content === "" && !file) return alert("Post cannot be empty!");
 
-  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 
+  if (!currentUser){
+    alert ("No user logged in!");
+    return;
+  }
   if (file) {
     const reader = new FileReader();
 
@@ -29,7 +33,7 @@ postBtn.addEventListener("click", () => {
       };
 
       savePost(post);
-      addPostToFeed(post);
+      loadPosts();
       postContent.value = "";
       postImage.value = "";
     };
@@ -48,7 +52,7 @@ postBtn.addEventListener("click", () => {
     };
 
     savePost(post);
-    addPostToFeed(post);
+    loadPosts();
     postContent.value = "";
   }
 });
@@ -63,8 +67,9 @@ function loadPosts() {
   if (!feed) return;
   feed.innerHTML = "";
   let posts = JSON.parse(localStorage.getItem("posts")) || [];
-  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
-  const userPost = posts.filter((p) => p.username === currentUser.username);
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
+  if (!currentUser) return;
+  const userPost = posts.filter((p) => p.userId === currentUser.id);
   userPost.forEach((post) => addPostToFeed(post));
   // posts.forEach(post => addPostToFeed(post));
 }
@@ -102,7 +107,7 @@ function addPostToFeed(post) {
   const likeBtn = postDiv.querySelector(".like-btn");
   const moreBtn = postDiv.querySelector(".more-btn");
   const deleteBtn = postDiv.querySelector(".delete-btn");
-  const commentInput = postDiv.querySelector("input");
+  const commentInput = postDiv.querySelector(".comment-box input");
   const commentBtn = postDiv.querySelector(".comment-btn");
 
   deleteBtn.style.display = "none";
@@ -143,7 +148,7 @@ commentBtn.addEventListener("click", () => {
     return p;
   });
 
-  localStorage.setItem("posts", JSON.stringify(posts));
+  localStorage.setItem("post", JSON.stringify(post));
   loadPosts();
 });
 feed.appendChild(postDiv);
