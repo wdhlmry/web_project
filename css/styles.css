@@ -133,21 +133,10 @@ body {
 
 /*---------------------------index.html Page----------------------------*/
 .index-body {
-<<<<<<< HEAD
-  font-family: "Lucida Sans", sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  min-height: 100vh;
-}
-
-.index-body .navbar a {
-  color: black;
-=======
     font-family: 'Lucida Sans', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     min-height: 100vh;
->>>>>>> fe7aa4898eb016e9086e8adbd6487f2e9d148a87
 }
 
 .navbar {
@@ -161,15 +150,9 @@ body {
 }
 
 .headline {
-<<<<<<< HEAD
-  font-size: 24px;
-  font-weight: bold;
-  color: #ffffff;
-=======
     font-size: 24px;
     font-weight: bold;
     color: #ffffff;
->>>>>>> fe7aa4898eb016e9086e8adbd6487f2e9d148a87
 }
 
 .navbar h1 {
@@ -205,16 +188,6 @@ body {
 }
 
 .create-post {
-<<<<<<< HEAD
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  max-width: 600px;
-  background-color: black;
-  padding: 20px;
-  border-radius: 20px;
-=======
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -223,7 +196,6 @@ body {
     background-color: black;
     padding: 20px;
     border-radius: 20px;
->>>>>>> fe7aa4898eb016e9086e8adbd6487f2e9d148a87
 }
 
 .create-post textarea {
@@ -248,15 +220,11 @@ body {
 }
 
 .create-post button:hover {
-<<<<<<< HEAD
-  background-color: rgba(255, 255, 255, 0.186);
-=======
     background-color: rgba(255, 255, 255, 0.186);
 }
 
 #post-image {
     margin-top: 10px;
->>>>>>> fe7aa4898eb016e9086e8adbd6487f2e9d148a87
 }
 
 #feed {
@@ -266,13 +234,12 @@ body {
   width: 100%;
   max-width: 600px;
 }
-<<<<<<< HEAD
 .post {
   border-radius: 10px;
   box-shadow: var(--shadow);
   width: 100%;
   height: 90px;
-=======
+}
 
 .post {
     display: grid;
@@ -285,14 +252,12 @@ body {
     box-shadow: var(--shadow);
     width: 100%;
     height: auto;
->>>>>>> fe7aa4898eb016e9086e8adbd6487f2e9d148a87
 }
 
 .post:hover {
   transform: translateY(-3px);
 }
 
-<<<<<<< HEAD
 .post h3 {
   font-size: 16px;
   cursor: pointer;
@@ -329,67 +294,6 @@ body {
 .comment-box {
   display: flex;
   gap: 10px;
-=======
-.post-content {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    overflow: hidden;
-}
-
-.post-content strong {
-    font-size: 15px;
-}
-
-.post-content p {
-    margin-top: 5px;
-    font-size: 14px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    word-break: break-word;
-}
-
-.post-content small {
-    margin-top: 5px;
-    font-size: 12px;
-    color: #666;
-}
-
-.post-img {
-    width: 45%;
-    height: auto;
-    max-width: 45%;
-    border-radius: 10px;
-    margin-top: 10px;
-    object-fit: cover;
-}
-
-.post-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.post-actions button {
-    padding: 6px 10px;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 13px;
-    transition: 0.2s;
-}
-
-.post-actions button:hover {
-    background-color: #67182f;
-}
-
-.comment-box {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
->>>>>>> fe7aa4898eb016e9086e8adbd6487f2e9d148a87
 }
 
 .comment-box input {
@@ -399,14 +303,6 @@ body {
   border: 1px solid var(--border-color);
 }
 
-<<<<<<< HEAD
-.post small {
-  font-size: 12px;
-  color: #666;
-}
-
-=======
->>>>>>> fe7aa4898eb016e9086e8adbd6487f2e9d148a87
 footer {
   background-color: var(--text-color);
   color: var(--background-color);
@@ -439,21 +335,6 @@ footer {
     padding: 15px;
   }
 }
-<<<<<<< HEAD
-.post {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-}
-
-.post-options button {
-  margin-left: 5px;
-}
-
-=======
->>>>>>> fe7aa4898eb016e9086e8adbd6487f2e9d148a87
 /*---------------------------logout.html Page----------------------------*/
 
 /*---------------------------Profile.html Page----------------------------*/
