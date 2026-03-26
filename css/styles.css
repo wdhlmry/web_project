@@ -161,6 +161,7 @@ body {
 
 .navbar h1 {
   font-size: 22px;
+  color: var(--text-color);
 }
 
 .navbar div {
