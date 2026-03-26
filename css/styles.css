@@ -138,7 +138,9 @@ body {
     color: var(--text-color);
     min-height: 100vh;
 }
-
+.index-body nav a{
+  color: #000000;
+}
 .navbar {
   width: 100%;
   display: flex;
@@ -336,6 +338,45 @@ footer {
   .create-post {
     padding: 15px;
   }
+}
+
+.like-btn {
+  margin-top: 10px;
+  background: #f3e8ff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.comments {
+  margin-top: 10px;
+}
+
+.comments p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+.comment-box {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.comment-box input {
+  flex: 1;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.comment-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
 }
 /*---------------------------logout.html Page----------------------------*/
 
