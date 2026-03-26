@@ -139,8 +139,14 @@ body {
     color: var(--text-color);
     min-height: 100vh;
 }
-.index-body nav a{
-  color: #000000;
+.index-body nav a {
+  color:white;
+}
+.index-body nav h1{
+  color: white;
+}
+.index-body nav{
+  background-color:  #795682;
 }
 .navbar {
   width: 100%;
@@ -148,7 +154,8 @@ body {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid var(--color-border);
-  color: #ffffff;
+  color: #795682;
+  background-color:  #795682;
   padding: 15px 25px;
 }
 
