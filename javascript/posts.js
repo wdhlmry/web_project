@@ -56,7 +56,7 @@ postBtn.addEventListener("click", () => {
 function savePost(post) {
   let posts = JSON.parse(localStorage.getItem("posts")) || [];
   posts.unshift(post);
-  localStorage.setItem("posts", JSON.stringify("posts"));
+  localStorage.setItem("posts", JSON.stringify(posts));
 }
 
 function loadPosts() {
