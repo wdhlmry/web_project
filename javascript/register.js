@@ -19,7 +19,7 @@ function addUser(){
 
     let nickname = "";
     let bio = "";      
-    let profilePic = ""; 
+    let profilePic = "../images/default-avatar.png";
     let followers = [];  
     let following = [];  
     

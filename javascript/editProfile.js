@@ -10,7 +10,7 @@ let currentUser = JSON.parse(localStorage.getItem("currentUser")) || {
   nickname: "",
   username: "",
   bio: "Hello i am new here", // the defult bio
-  profilePic: "../images/download__9_-removebg-preview.png",
+  profilePic: "../images/default-avatar.png",
   followers: [],
   following: [],
   posts: [],
@@ -20,7 +20,7 @@ let currentUser = JSON.parse(localStorage.getItem("currentUser")) || {
 nicknameInput.value = currentUser.nickname || "";
 usernameInput.value = currentUser.username || "";
 bioInput.value = currentUser.bio || "";
-previewImage.src = currentUser.profilePic || "../images/download__9_-removebg-preview.png"
+previewImage.src = currentUser.profilePic || "../images/default-avatar.png",
 
 
 accountPictureInput.addEventListener("change", function(){

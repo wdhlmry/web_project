@@ -16,12 +16,12 @@ const picE1 = document.querySelector(".profile_pic");
 
 if (currentUser) {
   if (usernameE1)
-    usernameE1.textContent = currentUser.username || "No Username";
+    usernameE1.textContent = "@" + currentUser.username || "No Username";
   if (bioE1) bioE1.textContent = currentUser.bio || "No Bio";
   if (nicknameE1)
     nicknameE1.textContent = currentUser.nickname || "No Name/Nickname";
  if (picE1) {
-  picE1.src = currentUser.profilePic || "../images/download__9_-removebg-preview.png";
+  picE1.src = currentUser.profilePic || "../images/default-avatar.png";
 }
 }
 //functions
