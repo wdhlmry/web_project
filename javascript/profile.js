@@ -29,7 +29,7 @@ function updateFollowButton() {
   if (!followbtn || !currentUser) return;
 
   if (viewedUserId === currentUser.id) {
-    followBtn.style.display = "inline-block";
+    followbtn.style.display = "inline-block";
     return;
   }
 

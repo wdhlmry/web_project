@@ -18,7 +18,6 @@ postBtn.addEventListener("click", () => {
 
   if (!currentUser) {
     alert("No user logged in!");
-
     return;
   }
   if (file) {
@@ -33,7 +32,7 @@ postBtn.addEventListener("click", () => {
         image: reader.result,
         date: new Date().toLocaleString(),
         likes: 0,
-        comments: [],
+        comments: []
       };
 
       const saved = savePost(post);
@@ -54,7 +53,7 @@ postBtn.addEventListener("click", () => {
       image: null,
       date: new Date().toLocaleString(),
       likes: 0,
-      comments: [],
+      comments: []
     };
 
     const saved = savePost(post);
@@ -70,10 +69,17 @@ function savePost(post) {
     let posts = JSON.parse(localStorage.getItem("posts")) || [];
     posts.unshift(post);
     localStorage.setItem("posts", JSON.stringify(posts));
+
+    let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+    if (currentUser) {
+      if (!currentUser.posts) currentUser.posts = [];
+      currentUser.posts.unshift(post.id);
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+    }
+
     return true;
   } catch (error) {
     alert("Post could not be saved. The image may be too large.");
-    console.error(error);
     return false;
   }
 }

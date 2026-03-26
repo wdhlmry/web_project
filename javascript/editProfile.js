@@ -15,16 +15,6 @@ if (!currentUser) {
   if (!currentUser.posts) currentUser.posts = [];
 }
 
-//   id: Date.now(),
-//   nickname: "",
-//   username: "",
-//   bio: "Hello i am new here", // the defult bio
-//   profilePic: "../images/default-avatar.png",
-//   followers: [],
-//   following: [],
-//   posts: [],
-// };
-
 // the changes on the edit profile to the profile
 if (currentUser){
 nicknameInput.value = currentUser.nickname || "";
@@ -51,8 +41,6 @@ editForm.addEventListener("submit", function (e) {
 
   if(!currentUser) return;
 
-  const oldUsername = currentUser.username;
-
   const updatedUser = {
     ...currentUser,
     nickname: nicknameInput.value.trim(),
@@ -60,22 +48,30 @@ editForm.addEventListener("submit", function (e) {
     bio: bioInput.value.trim(),
     profilePic: previewImage.src,
   };
+
   //save current login user
   localStorage.setItem("currentUser", JSON.stringify(updatedUser));
 
   let users = JSON.parse(localStorage.getItem("users")) || [];
-  if (users.length > 0) {
-    posts = posts.map((post) => {
-      if (post.id === updatedUser.id) {
-        return{
-          ...post,
-          username: updatedUser.username,
-        };
-      }
-      return post;
-    });
+  users = users.map((user) => {
+    if (user.id === updatedUser.id) {
+      return updatedUser;
+    }
+    return user;
+  });
 
-    localStorage.setItem("users", JSON.stringify(users));
-  }
+  let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+  posts = posts.map((post) => {
+    if (post.userId === updatedUser.id) {
+      return {
+        ...post,
+        username: updatedUser.username,
+      };
+    }
+    return post;
+    });
+    localStorage.setItem("posts", JSON.stringify(posts));
+
   window.location.href = "../html/profile.html";
 });
