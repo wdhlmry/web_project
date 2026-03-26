@@ -18,7 +18,7 @@
 .home_body{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: var(--text-color);
-    background-image: url(/images/Fluid\ And\ Vibrant\ Abstract\ Watercolor\ Texture\ With\ Blue\ And\ Green\ Hues\,\ Liquid\ Paint\,\ Liquid\ Pattern\,\ Oil\ Texture\ PNG\ Transparent\ Image\ and\ Clipart\ for\ Free\ Download.jpg);
+    background-image: url("../images/Fluid And Vibrant Abstract...");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -529,7 +529,7 @@ main {
 .user_info textarea {
     background-color: rgba(255, 255, 255, 0.5);
     box-shadow: var(--shadow);
-    border: 1px;
+    border: 1px solid #ccc;
     border-radius: 8px;
 }
 

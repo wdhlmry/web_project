@@ -3,7 +3,6 @@ const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 
 if (!currentUser) {
   alert("No user logged in!");
-  return;
 } else {
   if (!currentUser.followers) currentUser.followers = [];
   if (!currentUser.following) currentUser.following = [];
@@ -94,6 +93,37 @@ function unfollowUser(targetUserId) {
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
 }
 
+function renderUserPosts(){
+  if (!currentUser) return;
+
+  const profilePostsCountainer = document.getElementById("profile_posts");
+  if (!profilePostsCountainer) return;
+
+  const posts = JSON.parse(localStorage.getItem("posts")) || [];
+  const userPosts = posts.filter((post) => post.userId === currentUser.id);
+
+  profilePostsCountainer.innerHTML = "";
+
+  if (userPosts.length === 0){
+    profilePostsCountainer.innerHTML = "<h4> No Posts yet</h4>";
+    return;
+  }
+
+  userPosts.forEach((post) => {
+    const postDiv = document.createElement("div");
+    postDiv.classList.add("post");
+
+    postDiv.innerHTML=`
+    <div class="post-content">
+    <strong> ${post.username}</strong>
+        <p>${post.text}</p>
+        <small>${post.date}</small>
+      </div>`;
+
+      profilePostsCountainer.appendChild(postDiv);
+  });
+}
+
 function updateStatus() {
   if (!currentUser) return;
   const followersCount = document.getElementById("followers_count");
@@ -146,3 +176,4 @@ if (followbtn && currentUser) {
 
 updateFollowButton();
 updateStatus();
+renderUserPosts();

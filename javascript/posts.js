@@ -32,7 +32,7 @@ function loadPosts() {
   feed.innerHTML = "";
   let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
-  post.forEach( post => addPostToFeed(post));
+  posts.forEach( post => addPostToFeed(post));
 //   const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
 //   const userPost = posts.filter((p) => p.username === currentUser.username);
 //   userPost.forEach((post) => addPostToFeed(post));
