@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", loadPosts);
 
 postBtn.addEventListener("click", () => {
   const content = postContent.value.trim();
-  const file = postImage ? postImage.files[0] : null;
+  const file = postImage.files[0];
 
   if (content === "" && !file) return alert("Post cannot be empty!");
 
-  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
 
   if (file) {
     const reader = new FileReader();
@@ -63,7 +63,7 @@ function loadPosts() {
   if (!feed) return;
   feed.innerHTML = "";
   let posts = JSON.parse(localStorage.getItem("posts")) || [];
-  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
   const userPost = posts.filter((p) => p.username === currentUser.username);
   userPost.forEach((post) => addPostToFeed(post));
   // posts.forEach(post => addPostToFeed(post));
@@ -102,7 +102,7 @@ function addPostToFeed(post) {
   const likeBtn = postDiv.querySelector(".like-btn");
   const moreBtn = postDiv.querySelector(".more-btn");
   const deleteBtn = postDiv.querySelector(".delete-btn");
-  const commentInput = postDiv.querySelector(".comment-box input");
+  const commentInput = postDiv.querySelector("input");
   const commentBtn = postDiv.querySelector(".comment-btn");
 
   deleteBtn.style.display = "none";
@@ -116,37 +116,37 @@ function addPostToFeed(post) {
     deletePost(post.id);
   });
 
-  likeBtn.addEventListener("click", () => {
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+likeBtn.addEventListener("click", () => {
+  let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
-    posts = posts.map((p) => {
-      if (p.id === post.id) {
-        p.likes = (p.likes || 0) + 1;
-      }
-      return p;
-    });
-    localStorage.setItem("posts", JSON.stringify(posts));
-    loadPosts();
+  posts = posts.map((p) => {
+    if (p.id === post.id) {
+      p.likes = (p.likes || 0) + 1;
+    }
+    return p;
+  });
+  localStorage.setItem("posts", JSON.stringify(posts));
+  loadPosts();
+});
+
+commentBtn.addEventListener("click", () => {
+  const commentText = commentInput.value.trim();
+  if (!commentText) return;
+
+  let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+  posts = posts.map((p) => {
+    if (p.id === post.id) {
+      if (!p.comments) p.comments = [];
+      p.comments.push(commentText);
+    }
+    return p;
   });
 
-  commentBtn.addEventListener("click", () => {
-    const commentText = commentInput.value.trim();
-    if (!commentText) return;
-
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-    posts = posts.map((p) => {
-      if (p.id === post.id) {
-        if (!p.comments) p.comments = [];
-        p.comments.push(commentText);
-      }
-      return p;
-    });
-
-    localStorage.setItem("posts", JSON.stringify(posts));
-    loadPosts();
-  });
-  feed.appendChild(postDiv);
+  localStorage.setItem("posts", JSON.stringify(posts));
+  loadPosts();
+});
+feed.appendChild(postDiv);
 }
 
 function deletePost(id) {
