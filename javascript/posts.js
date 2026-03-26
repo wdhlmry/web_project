@@ -7,14 +7,18 @@ document.addEventListener("DOMContentLoaded", loadPosts);
 
 postBtn.addEventListener("click", () => {
   const content = postContent.value.trim();
-  const file = postImage ? postImage.files[0]  : null;
+  const file = postImage ? postImage.files[0] : null;
 
-  if (content === "" && !file) return alert("Post cannot be empty!");
+  if (content === "" && !file) {
+    alert("Post cannot be empty!");
+    return;
+  }
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 
-  if (!currentUser){
-    alert ("No user logged in!");
+  if (!currentUser) {
+    alert("No user logged in!");
+
     return;
   }
   if (file) {
@@ -32,8 +36,10 @@ postBtn.addEventListener("click", () => {
         comments: [],
       };
 
-      savePost(post);
-      loadPosts();
+      const saved = savePost(post);
+      if (saved) {
+        loadPosts();
+      }
       postContent.value = "";
       postImage.value = "";
     };
@@ -51,16 +57,25 @@ postBtn.addEventListener("click", () => {
       comments: [],
     };
 
-    savePost(post);
-    loadPosts();
+    const saved = savePost(post);
+    if (saved) {
+      loadPosts();
+    }
     postContent.value = "";
   }
 });
 
 function savePost(post) {
-  let posts = JSON.parse(localStorage.getItem("posts")) || [];
-  posts.unshift(post);
-  localStorage.setItem("posts", JSON.stringify(posts));
+  try {
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+    posts.unshift(post);
+    localStorage.setItem("posts", JSON.stringify(posts));
+    return true;
+  } catch (error) {
+    alert("Post could not be saved. The image may be too large.");
+    console.error(error);
+    return false;
+  }
 }
 
 function loadPosts() {
@@ -71,7 +86,7 @@ function loadPosts() {
   if (!currentUser) return;
   // const userPost = posts.filter((p) => p.userId === currentUser.id);
   // userPost.forEach((post) => addPostToFeed(post));
-  posts.forEach(post => addPostToFeed(post));
+  posts.forEach((post) => addPostToFeed(post));
 }
 
 function addPostToFeed(post) {
@@ -121,37 +136,37 @@ function addPostToFeed(post) {
     deletePost(post.id);
   });
 
-likeBtn.addEventListener("click", () => {
-  let posts = JSON.parse(localStorage.getItem("posts")) || [];
+  likeBtn.addEventListener("click", () => {
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
-  posts = posts.map((p) => {
-    if (p.id === post.id) {
-      p.likes = (p.likes || 0) + 1;
-    }
-    return p;
-  });
-  localStorage.setItem("posts", JSON.stringify(posts));
-  loadPosts();
-});
-
-commentBtn.addEventListener("click", () => {
-  const commentText = commentInput.value.trim();
-  if (!commentText) return;
-
-  let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-  posts = posts.map((p) => {
-    if (p.id === post.id) {
-      if (!p.comments) p.comments = [];
-      p.comments.push(commentText);
-    }
-    return p;
+    posts = posts.map((p) => {
+      if (p.id === post.id) {
+        p.likes = (p.likes || 0) + 1;
+      }
+      return p;
+    });
+    localStorage.setItem("posts", JSON.stringify(posts));
+    loadPosts();
   });
 
-  localStorage.setItem("posts", JSON.stringify(posts));
-  loadPosts();
-});
-feed.appendChild(postDiv);
+  commentBtn.addEventListener("click", () => {
+    const commentText = commentInput.value.trim();
+    if (!commentText) return;
+
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+    posts = posts.map((p) => {
+      if (p.id === post.id) {
+        if (!p.comments) p.comments = [];
+        p.comments.push(commentText);
+      }
+      return p;
+    });
+
+    localStorage.setItem("posts", JSON.stringify(posts));
+    loadPosts();
+  });
+  feed.appendChild(postDiv);
 }
 
 function deletePost(id) {
