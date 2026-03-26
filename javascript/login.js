@@ -47,22 +47,22 @@ if (loginForm) {
     e.preventDefault();
     clearMessage("errorMessage");
 
-    const email = document.getElementById("email").value.trim().toLowerCase();
+    const username = document.getElementById("username").value.trim().toLowerCase();
     const password = document.getElementById("password").value;
 
-    if (!email || !password) {
-      showMessage("errorMessage", "email and password is Required");
+    if (!username || !password) {
+      showMessage("errorMessage", "username and password is Required");
       return;
     }
 
     const users = getUsers();
 
     const user = users.find(
-      (u) => u.email.toLowerCase() === email && u.password === password,
+      (u) => u.username.toLowerCase() === username && u.password === password
     );
 
     if (!user) {
-      showMessage("errorMessage", "Invalid email or password !");
+      showMessage("errorMessage", "Invalid username or password !");
       return;
     }
     setCurrentUser(user);
