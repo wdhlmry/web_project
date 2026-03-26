@@ -11,7 +11,7 @@ postBtn.addEventListener("click", () => {
 
   if (content === "" && !file) return alert("Post cannot be empty!");
 
-  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
 
   if (file) {
     const reader = new FileReader();
@@ -59,7 +59,10 @@ function loadPosts() {
   if (!feed) return;
   feed.innerHTML = "";
   let posts = JSON.parse(localStorage.getItem("posts")) || [];
-  posts.forEach(post => addPostToFeed(post));
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || [];
+  const userPost = posts.filter((p) => p.username === currentUser.username);
+  userPost.forEach((post) => addPostToFeed(post));
+  // posts.forEach(post => addPostToFeed(post));
 }
 
 function addPostToFeed(post) {
