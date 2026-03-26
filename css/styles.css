@@ -407,6 +407,20 @@ footer {
         padding: 15px;
     }
 }
+.more_btn {
+    display: none;
+    background-color: #fff;   /* White background */
+    color: #555;               /* Dark text */
+    border: 1px solid #ccc;    /* Light border */
+    border-radius: 4px;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background-color: #f0f0f0; /* Slight gray on hover */
+}
 /*---------------------------logout.html Page----------------------------*/
 
 /*---------------------------Profile.html Page----------------------------*/

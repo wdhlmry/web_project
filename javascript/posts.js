@@ -131,7 +131,7 @@ function addPostToFeed(post) {
   const commentInput = postDiv.querySelector(".comment-box input");
   const commentBtn = postDiv.querySelector(".comment-btn");
 
-  deleteBtn.style.display = "none";
+  // deleteBtn.style.display = "none";
 
   moreBtn.addEventListener("click", () => {
     deleteBtn.style.display =
