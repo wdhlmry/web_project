@@ -11,7 +11,7 @@ postBtn.addEventListener("click", () => {
 
   if (content === "" && !file) return alert("Post cannot be empty!");
 
-  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null ;
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 
   if (file) {
     const reader = new FileReader();
@@ -43,8 +43,8 @@ postBtn.addEventListener("click", () => {
       text: content,
       image: null,
       date: new Date().toLocaleString(),
-      likes : 0,
-      comments: []
+      likes: 0,
+      comments: [],
     };
 
     savePost(post);
@@ -116,37 +116,37 @@ function addPostToFeed(post) {
     deletePost(post.id);
   });
 
-likeBtn.addEventListener("click", () => {
-  let posts = JSON.parse(localStorage.getItem("posts")) || [];
+  likeBtn.addEventListener("click", () => {
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
-  posts = posts.map((p) => {
-    if (p.id === post.id) {
-      p.likes = (p.likes || 0) + 1;
-    }
-    return p;
-  });
-  localStorage.setItem("posts", JSON.stringify(posts));
-  loadPosts();
-});
-
-commentBtn.addEventListener("click", () => {
-  const commentText = commentInput.value.trim();
-  if (!commentText) return;
-
-  let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-  posts = posts.map((p) => {
-    if (p.id === post.id) {
-      if (!p.comments) p.comments = [];
-      p.comments.push(commentText);
-    }
-    return p;
+    posts = posts.map((p) => {
+      if (p.id === post.id) {
+        p.likes = (p.likes || 0) + 1;
+      }
+      return p;
+    });
+    localStorage.setItem("posts", JSON.stringify(posts));
+    loadPosts();
   });
 
-  localStorage.setItem("posts", JSON.stringify(posts));
-  loadPosts();
-});
-feed.appendChild(postDiv);
+  commentBtn.addEventListener("click", () => {
+    const commentText = commentInput.value.trim();
+    if (!commentText) return;
+
+    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+    posts = posts.map((p) => {
+      if (p.id === post.id) {
+        if (!p.comments) p.comments = [];
+        p.comments.push(commentText);
+      }
+      return p;
+    });
+
+    localStorage.setItem("posts", JSON.stringify(posts));
+    loadPosts();
+  });
+  feed.appendChild(postDiv);
 }
 
 function deletePost(id) {

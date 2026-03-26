@@ -20,9 +20,9 @@ if (currentUser) {
   if (bioE1) bioE1.textContent = currentUser.bio || "No Bio";
   if (nicknameE1)
     nicknameE1.textContent = currentUser.nickname || "No Name/Nickname";
- if (picE1) {
-  picE1.src = currentUser.profilePic || "../images/default-avatar.png";
-}
+  if (picE1) {
+    picE1.src = currentUser.profilePic || "../images/default-avatar.png";
+  }
 }
 //functions
 function updateFollowButton() {
@@ -93,7 +93,7 @@ function unfollowUser(targetUserId) {
   localStorage.setItem("currentUser", JSON.stringify(currentUser));
 }
 
-function renderUserPosts(){
+function renderUserPosts() {
   if (!currentUser) return;
 
   const profilePostsCountainer = document.getElementById("profile_posts");
@@ -104,7 +104,7 @@ function renderUserPosts(){
 
   profilePostsCountainer.innerHTML = "";
 
-  if (userPosts.length === 0){
+  if (userPosts.length === 0) {
     profilePostsCountainer.innerHTML = "<h4> No Posts yet</h4>";
     return;
   }
@@ -113,14 +113,14 @@ function renderUserPosts(){
     const postDiv = document.createElement("div");
     postDiv.classList.add("post");
 
-    postDiv.innerHTML=`
+    postDiv.innerHTML = `
     <div class="post-content">
     <strong> ${post.username}</strong>
         <p>${post.text}</p>
         <small>${post.date}</small>
       </div>`;
 
-      profilePostsCountainer.appendChild(postDiv);
+    profilePostsCountainer.appendChild(postDiv);
   });
 }
 

@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-    logoutUser();
+  logoutUser();
 });
 
 function logoutUser() {
-    localStorage.removeItem("currentUser");
+  localStorage.removeItem("currentUser");
 }
 
 function goLogin() {
-    window.location.href = "../html/login.html";
+  window.location.href = "../html/login.html";
 }
