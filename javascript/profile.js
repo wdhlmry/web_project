@@ -29,7 +29,7 @@ function updateFollowButton() {
   if (!followbtn || !currentUser) return;
 
   if (viewedUserId === currentUser.id) {
-    followbtn.style.display = "none";
+    followBtn.style.display = "inline-block";
     return;
   }
 
@@ -156,7 +156,7 @@ function updateStatus() {
 //Handling follow/unfollow
 const followbtn = document.getElementById("follow_button");
 
-const viewedUserId = 2; //this value is an example
+const viewedUserId = currentUser ? currentUser.id : null;
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 

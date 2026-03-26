@@ -5,22 +5,34 @@ const bioInput = document.getElementById("bio");
 const accountPictureInput = document.getElementById("accountPicture");
 const previewImage = document.querySelector(".picture img");
 
-let currentUser = JSON.parse(localStorage.getItem("currentUser")) || {
-  id: Date.now(),
-  nickname: "",
-  username: "",
-  bio: "Hello i am new here", // the defult bio
-  profilePic: "../images/default-avatar.png",
-  followers: [],
-  following: [],
-  posts: [],
-};
+let currentUser = JSON.parse(localStorage.getItem("currentUser")) || null ;
+
+if (!currentUser) {
+  alert("No user logged in!");
+} else {
+  if (!currentUser.followers) currentUser.followers = [];
+  if (!currentUser.following) currentUser.following = [];
+  if (!currentUser.posts) currentUser.posts = [];
+}
+
+//   id: Date.now(),
+//   nickname: "",
+//   username: "",
+//   bio: "Hello i am new here", // the defult bio
+//   profilePic: "../images/default-avatar.png",
+//   followers: [],
+//   following: [],
+//   posts: [],
+// };
 
 // the changes on the edit profile to the profile
+if (currentUser){
 nicknameInput.value = currentUser.nickname || "";
 usernameInput.value = currentUser.username || "";
 bioInput.value = currentUser.bio || "";
-((previewImage.src = currentUser.profilePic || "../images/default-avatar.png"),
+previewImage.src = currentUser.profilePic || "../images/default-avatar.png";
+}
+
   accountPictureInput.addEventListener("change", function () {
     const file = this.files[0];
     if (file) {
@@ -30,12 +42,16 @@ bioInput.value = currentUser.bio || "";
       };
       reader.readAsDataURL(file);
     }
-  }));
+  });
 
 //save when we click submit
 editForm.addEventListener("submit", function (e) {
   e.preventDefault();
   console.log("SUBMIT WORKED");
+
+  if(!currentUser) return;
+
+  const oldUsername = currentUser.username;
 
   const updatedUser = {
     ...currentUser,
@@ -49,11 +65,14 @@ editForm.addEventListener("submit", function (e) {
 
   let users = JSON.parse(localStorage.getItem("users")) || [];
   if (users.length > 0) {
-    users = users.map((user) => {
-      if (user.id === updatedUser.id) {
-        return updatedUser;
+    posts = posts.map((post) => {
+      if (post.id === updatedUser.id) {
+        return{
+          ...post,
+          username: updatedUser.username,
+        };
       }
-      return user;
+      return post;
     });
 
     localStorage.setItem("users", JSON.stringify(users));
