@@ -117,6 +117,7 @@ function renderUserPosts() {
     <div class="post-content">
     <strong> ${post.username}</strong>
         <p>${post.text}</p>
+        ${post.image ? `<img src="${post.image}" class="post-img">` : ""}
         <small>${post.date}</small>
       </div>`;
 
