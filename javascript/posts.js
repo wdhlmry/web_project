@@ -148,7 +148,7 @@ commentBtn.addEventListener("click", () => {
     return p;
   });
 
-  localStorage.setItem("post", JSON.stringify(post));
+  localStorage.setItem("posts", JSON.stringify(posts));
   loadPosts();
 });
 feed.appendChild(postDiv);
