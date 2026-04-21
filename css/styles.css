@@ -1,11 +1,11 @@
 :root {
   --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 
-  --color-border: #000000; /* light lavender */
-  --text-color: #000000; /* soft purple text */
-  --background-color: #ffffff; /* super light pastel */
-  --primary: #795682; /* pastel purple */
-  --primary-dark: #412d5d; /* slightly darker */
+  --color-border: #222831; /* light lavender */
+  --text-color: black; /* soft purple text */
+  --background-color: #00ADB5; /* super light pastel */
+  --primary: #00ADB5; /* pastel purple */
+  --primary-dark: pink; /* slightly darker */
 }
 * {
   margin: 0;
@@ -43,7 +43,7 @@ body {
 }
 
 .home_main {
-  background-color: var(--primary);
+  background-color: pink;
   margin: 70px auto;
   padding: 24px 0;
   width: 60%;
