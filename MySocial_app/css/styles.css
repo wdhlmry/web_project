@@ -145,12 +145,55 @@ body {
 
 /* General body */
 .index-body {
+    display: grid;
+
+    grid-template-areas:
+    "nav nav"
+    "main sidebar"
+    "footer footer";
+
     font-family: 'Lucida Sans', sans-serif;
     background-color: var(--background-color);
     color: var(--text-color);
     min-height: 100vh;
 }
+/* index grid main in the left sidebar in the right */
+.navbar{
+  grid-area: nav;
+}
+.index-main{
+  grid-area: main;
+}
+.allUsers{
+  grid-area: sidebar;
+}
+.footer{
+  grid-area: footer;
+}
 
+.allUsers{
+  background-color: #eee5f9;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: var(--shadow);
+  margin: 15px;
+}
+.eachUser{
+  background-color: #e0ccf9;
+  display: grid;
+  border-radius: 5px;
+  box-shadow: var(--shadow);
+  padding: 10px;
+  margin: 10px;
+}
+.eachUser button{
+  color: white;
+  background-color: #795682;
+  border-radius: 10px;
+  width: 60px;
+  height: 20px;
+  margin: 10px;
+}
 /* Navbar */
 .index-body nav {
     background-color: var(--primary);

@@ -2,8 +2,12 @@ const postBtn = document.getElementById("post-btn");
 const postContent = document.getElementById("post-content");
 const postImage = document.getElementById("post-image");
 const feed = document.getElementById("feed");
+const userSidebar= document.getElementById("otherUsers");
 
-document.addEventListener("DOMContentLoaded", loadPosts);
+document.addEventListener("DOMContentLoaded", () => {
+  loadPosts();
+  loadUsers();
+});
 
 postBtn.addEventListener("click", () => {
   const content = postContent.value.trim();
@@ -180,4 +184,57 @@ function deletePost(id) {
   posts = posts.filter((post) => post.id !== id);
   localStorage.setItem("posts", JSON.stringify(posts));
   loadPosts();
+}
+
+
+function loadUsers(){
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const filterUsers = users.filter(u=> u.id != currentUser.id);
+
+  if(filterUsers.length ===0){
+    userSidebar.innerHTML = "<p> No other users yet. </p>"
+    return;
+  }
+  
+  const following = currentUser.following || [];
+  userSidebar.innerHTML = filterUsers.map(u =>{
+    const isFollowing =following.includes(u.id);
+    return `
+    <div class="eachUser">
+    <p>${u.username}</p>
+    <button class="followBtn" data-id="${u.id}">
+    ${isFollowing ?'Unfollow' : 'Follow' }</button>
+    </div>
+    `;
+  }).join("");
+
+  userSidebar.querySelectorAll(".followBtn").forEach(b => {
+    b.addEventListener("click", ()=>{
+      activeFollow(b.dataset.id);
+    });
+  });
+}
+
+
+function activeFollow(targetID){
+  let currentUser =JSON.parse(localStorage.getItem("currentUser")) || null;
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  let followingArr = currentUser.following || [];
+
+  const alreadyFollowing = followingArr.includes(Number(targetID));
+  if(alreadyFollowing){
+    followingArr = followingArr.filter(id => id !== Number(targetID));
+  }
+  else{
+    followingArr.push(Number(targetID));
+  }
+  currentUser.following = followingArr;
+  localStorage.setItem("currentUser",JSON.stringify(currentUser));
+  users = users.map(u=>u.id == currentUser.id? currentUser : u);
+  localStorage.setItem("users",JSON.stringify(users));
+  loadUsers();
+ 
 }
