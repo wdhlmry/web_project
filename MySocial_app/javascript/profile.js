@@ -25,73 +25,73 @@ if (currentUser) {
   }
 }
 //functions
-function updateFollowButton() {
-  if (!followbtn || !currentUser) return;
+// function updateFollowButton() {
+//   if (!followbtn || !currentUser) return;
 
-  if (viewedUserId === currentUser.id) {
-    followbtn.style.display = "inline-block";
-    return;
-  }
+//   if (viewedUserId === currentUser.id) {
+//     followbtn.style.display = "inline-block";
+//     return;
+//   }
 
-  if (currentUser.following.includes(viewedUserId)) {
-    followbtn.textContent = "Following";
-  } else {
-    followbtn.textContent = "Follow";
-  }
-}
+//   if (currentUser.following.includes(viewedUserId)) {
+//     followbtn.textContent = "Following";
+//   } else {
+//     followbtn.textContent = "Follow";
+//   }
+// }
 
-function followUser(targetUserId) {
-  if (targetUserId === currentUser.id) {
-    alert("You cannot follow yourself!");
-    return;
-  }
-  let users = JSON.parse(localStorage.getItem("users")) || [];
-  const targetUser = users.find((u) => u.id === targetUserId);
+// function followUser(targetUserId) {
+//   if (targetUserId === currentUser.id) {
+//     alert("You cannot follow yourself!");
+//     return;
+//   }
+//   let users = JSON.parse(localStorage.getItem("users")) || [];
+//   const targetUser = users.find((u) => u.id === targetUserId);
 
-  if (!targetUser) return;
-  if (!targetUser.followers) targetUser.followers = [];
+//   if (!targetUser) return;
+//   if (!targetUser.followers) targetUser.followers = [];
 
-  if (!currentUser.following.includes(targetUserId)) {
-    currentUser.following.push(targetUserId);
-    targetUser.followers.push(currentUser.id);
-  }
+//   if (!currentUser.following.includes(targetUserId)) {
+//     currentUser.following.push(targetUserId);
+//     targetUser.followers.push(currentUser.id);
+//   }
 
-  users = users.map((user) => {
-    if (user.id === currentUser.id) return currentUser;
-    if (user.id === targetUserId) return targetUser;
-    return user;
-  });
+//   users = users.map((user) => {
+//     if (user.id === currentUser.id) return currentUser;
+//     if (user.id === targetUserId) return targetUser;
+//     return user;
+//   });
 
-  localStorage.setItem("users", JSON.stringify(users));
-  localStorage.setItem("currentUser", JSON.stringify(currentUser));
-}
+//   localStorage.setItem("users", JSON.stringify(users));
+//   localStorage.setItem("currentUser", JSON.stringify(currentUser));
+// }
 
-function unfollowUser(targetUserId) {
-  let users = JSON.parse(localStorage.getItem("users")) || [];
-  const targetUser = users.find((u) => u.id === targetUserId);
+// function unfollowUser(targetUserId) {
+//   let users = JSON.parse(localStorage.getItem("users")) || [];
+//   const targetUser = users.find((u) => u.id === targetUserId);
 
-  if (!targetUser) return;
-  if (!currentUser.following.includes(targetUserId)) {
-    alert("You are not following this user!");
-    return;
-  }
+//   if (!targetUser) return;
+//   if (!currentUser.following.includes(targetUserId)) {
+//     alert("You are not following this user!");
+//     return;
+//   }
 
-  currentUser.following = currentUser.following.filter(
-    (id) => id !== targetUserId,
-  );
-  targetUser.followers = targetUser.followers.filter(
-    (id) => id !== currentUser.id,
-  );
+//   currentUser.following = currentUser.following.filter(
+//     (id) => id !== targetUserId,
+//   );
+//   targetUser.followers = targetUser.followers.filter(
+//     (id) => id !== currentUser.id,
+//   );
 
-  users = users.map((user) => {
-    if (user.id === currentUser.id) return currentUser;
-    if (user.id === targetUserId) return targetUser;
-    return user;
-  });
+//   users = users.map((user) => {
+//     if (user.id === currentUser.id) return currentUser;
+//     if (user.id === targetUserId) return targetUser;
+//     return user;
+//   });
 
-  localStorage.setItem("users", JSON.stringify(users));
-  localStorage.setItem("currentUser", JSON.stringify(currentUser));
-}
+//   localStorage.setItem("users", JSON.stringify(users));
+//   localStorage.setItem("currentUser", JSON.stringify(currentUser));
+// }
 
 function renderUserPosts() {
   if (!currentUser) return;
@@ -126,20 +126,25 @@ function renderUserPosts() {
 }
 
 function updateStatus() {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+
   if (!currentUser) return;
+
   const followersCount = document.getElementById("followers_count");
   const followingCount = document.getElementById("following_count");
   const postCount = document.getElementById("posts_count");
 
+  const targetUser = users.find(u=>u.id === currentUser.id);
   if (followersCount)
-    followersCount.textContent = currentUser.followers
-      ? currentUser.followers.length
-      : 0;
-  if (followingCount)
-    followingCount.textContent = currentUser.following
-      ? currentUser.following.length
-      : 0;
+    {
+    followersCount.textContent = targetUser.followers ? targetUser.followers.length : 0;
+    }
 
+  if (followingCount)
+    {
+    followingCount.textContent = targetUser.following ? targetUser.following.length : 0;
+    }
   //   document.getElementById("followers_count").textContent =
   //     currentUser.followers.length;
   //   document.getElementById("following_count").textContent =
@@ -154,27 +159,27 @@ function updateStatus() {
   }
 }
 //Handling follow/unfollow
-const followbtn = document.getElementById("follow_button");
+// const followbtn = document.getElementById("follow_button");
 
-const viewedUserId = currentUser ? currentUser.id : null;
+// const viewedUserId = currentUser ? currentUser.id : null;
 
-let users = JSON.parse(localStorage.getItem("users")) || [];
+// let users = JSON.parse(localStorage.getItem("users")) || [];
 
-let viewedUser = users.find((u) => u.id === viewedUserId);
+// let viewedUser = users.find((u) => u.id === viewedUserId);
 
-if (followbtn && currentUser) {
-  followbtn.addEventListener("click", () => {
-    if (currentUser.following.includes(viewedUserId)) {
-      unfollowUser(viewedUserId);
-    } else {
-      followUser(viewedUserId);
-    }
+// if (followbtn && currentUser) {
+//   followbtn.addEventListener("click", () => {
+//     if (currentUser.following.includes(viewedUserId)) {
+//       unfollowUser(viewedUserId);
+//     } else {
+//       followUser(viewedUserId);
+//     }
 
-    updateFollowButton();
-    updateStatus();
-  });
-}
+//     updateFollowButton();
+//     updateStatus();
+//   });
+// }
 
-updateFollowButton();
+// updateFollowButton();
 updateStatus();
 renderUserPosts();

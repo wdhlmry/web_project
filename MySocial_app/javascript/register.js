@@ -23,6 +23,7 @@ function addUser() {
   let profilePic = "../images/default-avatar.png";
   let followers = [];
   let following = [];
+  let like = [];
 
   const user = {
     email: email,
@@ -34,6 +35,7 @@ function addUser() {
     profilePic: profilePic,
     followers: followers,
     following: following,
+    like: like
   };
   users.push(user);
   localStorage.setItem("users", JSON.stringify(users));

@@ -1,3 +1,4 @@
+
 const postBtn = document.getElementById("post-btn");
 const postContent = document.getElementById("post-content");
 const postImage = document.getElementById("post-image");
@@ -137,27 +138,43 @@ function addPostToFeed(post) {
 
   // deleteBtn.style.display = "none";
 
-  moreBtn.addEventListener("click", () => {
-    deleteBtn.style.display =
-      deleteBtn.style.display === "none" ? "inline-block" : "none";
-  });
+  // moreBtn.addEventListener("click", () => {
+  //   deleteBtn.style.display =
+  //     deleteBtn.style.display === "none" ? "inline-block" : "none";
+  // });
 
   deleteBtn.addEventListener("click", () => {
     deletePost(post.id);
   });
 
-  likeBtn.addEventListener("click", () => {
-    let posts = JSON.parse(localStorage.getItem("posts")) || [];
+  likeBtn.addEventListener("click",()=>{
+      let posts = JSON.parse(localStorage.getItem("posts")) || [];
+      const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+      currentUser.like = currentUser.like || [];
 
-    posts = posts.map((p) => {
-      if (p.id === post.id) {
-        p.likes = (p.likes || 0) + 1;
+      posts = posts.map((p) => {
+        if(p.id === post.id){
+            const alreadyLiked = currentUser.like.includes(p.id);
+            if(alreadyLiked){//unlike
+              p.likes = Math.max((p.likes || 1) - 1,0);
+              currentUser.like = currentUser.like.filter(id => id !== p.id);
+            }else{//like
+              p.likes = (p.likes || 0)+1;
+              currentUser.like.push(p.id);
+            
+        }
       }
       return p;
-    });
-    localStorage.setItem("posts", JSON.stringify(posts));
-    loadPosts();
-  });
+      });
+
+      localStorage.setItem("posts", JSON.stringify(posts));
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
+      loadPosts();
+     
+});
+
+  
+
 
   commentBtn.addEventListener("click", () => {
     const commentText = commentInput.value.trim();
@@ -186,6 +203,7 @@ function deletePost(id) {
   loadPosts();
 }
 
+// for other users box:
 
 function loadUsers(){
   const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
@@ -216,8 +234,6 @@ function loadUsers(){
     });
   });
 }
-
-
 function activeFollow(targetID){
   let currentUser =JSON.parse(localStorage.getItem("currentUser")) || null;
   let users = JSON.parse(localStorage.getItem("users")) || [];
@@ -225,15 +241,29 @@ function activeFollow(targetID){
   let followingArr = currentUser.following || [];
 
   const alreadyFollowing = followingArr.includes(Number(targetID));
-  if(alreadyFollowing){
+  if(alreadyFollowing){//unfollow
     followingArr = followingArr.filter(id => id !== Number(targetID));
   }
-  else{
+  else{//follow
     followingArr.push(Number(targetID));
+
   }
   currentUser.following = followingArr;
+  users = users.map(u=>{ // this part is to handle followers count
+    if(u.id === Number(targetID)){
+      let followersArr = u.followers || [];
+      if(alreadyFollowing){
+        u.followers = followersArr.filter(id=>id!==currentUser.id);
+      }else{
+        u.followers = [...followersArr,currentUser.id];
+      }
+    }
+    if(u.id === currentUser.id){
+      return currentUser;
+    }
+    return u;
+  });
   localStorage.setItem("currentUser",JSON.stringify(currentUser));
-  users = users.map(u=>u.id == currentUser.id? currentUser : u);
   localStorage.setItem("users",JSON.stringify(users));
   loadUsers();
  
