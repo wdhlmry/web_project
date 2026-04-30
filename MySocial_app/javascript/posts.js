@@ -101,6 +101,8 @@ function loadPosts() {
 }
 
 function addPostToFeed(post) {
+
+  const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
   const postDiv = document.createElement("div");
   postDiv.classList.add("post");
 
@@ -131,17 +133,13 @@ function addPostToFeed(post) {
   `;
 
   const likeBtn = postDiv.querySelector(".like-btn");
-  const moreBtn = postDiv.querySelector(".more-btn");
   const deleteBtn = postDiv.querySelector(".delete-btn");
   const commentInput = postDiv.querySelector(".comment-box input");
   const commentBtn = postDiv.querySelector(".comment-btn");
 
-  // deleteBtn.style.display = "none";
-
-  // moreBtn.addEventListener("click", () => {
-  //   deleteBtn.style.display =
-  //     deleteBtn.style.display === "none" ? "inline-block" : "none";
-  // });
+  if(post.userId !== currentUser.id){
+    deleteBtn.style.display = "none";
+  }
 
   deleteBtn.addEventListener("click", () => {
     deletePost(post.id);
@@ -203,8 +201,7 @@ function deletePost(id) {
   loadPosts();
 }
 
-// for other users box:
-
+// for other users aside:
 function loadUsers(){
   const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
   const users = JSON.parse(localStorage.getItem("users")) || [];
