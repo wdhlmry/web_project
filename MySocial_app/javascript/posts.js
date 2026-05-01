@@ -116,7 +116,10 @@ function addPostToFeed(post) {
         <button class="like-btn"> ❤️ ${post.likes || 0}</button> 
 
         <div class="comments">
-        ${(post.comments || []).map((c) => `<p>💬 ${c}</p>`).join("")}
+        ${(post.comments || []).map((c) => `
+          <p>💬${c.username}: ${c.text}</p>
+          ${c.userId === currentUser.id ? `<button class="deleteCommentBtn" data-comment-id="${c.id}">del</button>`: ""}
+          `).join("")}
        </div>
         
        <div class="comment-box">
@@ -143,6 +146,23 @@ function addPostToFeed(post) {
 
   deleteBtn.addEventListener("click", () => {
     deletePost(post.id);
+  });
+  
+  postDiv.querySelectorAll(".deleteCommentBtn").forEach(b => {
+      b.addEventListener("click",()=>{
+        console.log("clickd");
+          
+      let posts = JSON.parse(localStorage.getItem("posts")) || [];
+      posts = posts.map(p=>{
+        if(p.id === post.id){
+          p.comments = p.comments.filter(c=>c.id !==Number(b.dataset.commentId));
+        }
+        return p;
+            });
+          localStorage.setItem("posts",JSON.stringify(posts));
+          loadPosts();
+
+        });
   });
 
   likeBtn.addEventListener("click",()=>{
@@ -179,20 +199,27 @@ function addPostToFeed(post) {
     if (!commentText) return;
 
     let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
+    const currentUser = JSON.parse(localStorage.getItem("currentUser"));
     posts = posts.map((p) => {
       if (p.id === post.id) {
         if (!p.comments) p.comments = [];
-        p.comments.push(commentText);
+        p.comments.push({
+          id:Date.now(),
+          userId:currentUser.id,
+          username:currentUser.username,
+          text:commentText
+        });
       }
       return p;
     });
+
 
     localStorage.setItem("posts", JSON.stringify(posts));
     loadPosts();
   });
   feed.appendChild(postDiv);
 }
+
 
 function deletePost(id) {
   let posts = JSON.parse(localStorage.getItem("posts")) || [];
