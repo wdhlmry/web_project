@@ -28,7 +28,7 @@ export default class PostRepo{
    static async getPostsByUser(userId){
     return prisma.post.findMany({
         where: {userId: Number(userId)},
-        orderBy: {id: desc}
+        orderBy: {id: desc} //orderBy: { id: "desc" }
     });
    }
 
