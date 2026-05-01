@@ -116,10 +116,14 @@ function addPostToFeed(post) {
         <button class="like-btn"> ❤️ ${post.likes || 0}</button> 
 
         <div class="comments">
-        ${(post.comments || []).map((c) => `
-          <p>💬${c.username}: ${c.text}</p>
-          ${c.userId === currentUser.id ? `<button class="deleteCommentBtn" data-comment-id="${c.id}">del</button>`: ""}
+          
+          ${(post.comments || []).map((c) => `
+              <div class="eachComment">
+                <p>💬${c.username}: ${c.text}</p>
+                ${c.userId === currentUser.id ? `<button class="deleteCommentBtn" data-comment-id="${c.id}">🗑️</button>`: ""}
+              </div>
           `).join("")}
+          
        </div>
         
        <div class="comment-box">
@@ -149,9 +153,7 @@ function addPostToFeed(post) {
   });
   
   postDiv.querySelectorAll(".deleteCommentBtn").forEach(b => {
-      b.addEventListener("click",()=>{
-        console.log("clickd");
-          
+      b.addEventListener("click",()=>{          
       let posts = JSON.parse(localStorage.getItem("posts")) || [];
       posts = posts.map(p=>{
         if(p.id === post.id){

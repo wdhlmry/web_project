@@ -388,6 +388,16 @@ body {
 .comments {
     margin-top: 10px;
 }
+.eachComment{
+  display: flex;
+}
+.eachComment button{
+  color: rgb(19, 6, 6);
+  background-color: #ffebee;
+  border: none;
+  border-radius: 10px;
+  width: 30px;
+  margin: 10px;}
 
 .comments p {
     margin: 4px 0;
