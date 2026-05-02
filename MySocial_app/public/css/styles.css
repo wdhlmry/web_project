@@ -341,7 +341,7 @@ body {
     resize: none;
     font-family: inherit;
     color: var(--text-color);
-    background-color: var(--secondary);
+    background-color: white;
 }
 
 .create-post button {
