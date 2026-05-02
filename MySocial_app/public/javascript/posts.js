@@ -250,10 +250,16 @@ function loadUsers(){
     <p>${u.username}</p>
     <button class="followBtn" data-id="${u.id}">
     ${isFollowing ?'Unfollow' : 'Follow' }</button>
+    <button class="viewProfileBtn" data-id="${u.id}">View Profile</button>
     </div>
     `;
   }).join("");
 
+  userSidebar.querySelectorAll(".viewProfileBtn").forEach(b => {
+    b.addEventListener("click", ()=>{
+      window.location.href = `profile.html?id=${b.dataset.id}`;
+    });
+  });
   userSidebar.querySelectorAll(".followBtn").forEach(b => {
     b.addEventListener("click", ()=>{
       activeFollow(b.dataset.id);

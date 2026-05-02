@@ -1,6 +1,9 @@
-//Displaying Current logged-in user
-const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
+const params = new URLSearchParams(window.location.search);
+const viewedUserId = Number(params.get("id"));
+const users = JSON.parse(localStorage.getItem("users")) || null;
+const loggedInUser = JSON.parse(localStorage.getItem("currentUser")) || null;
 
+const currentUser = viewedUserId ? users.find(u => u.id === viewedUserId) : loggedInUser;
 if (!currentUser) {
   alert("No user logged in!");
 } else {
