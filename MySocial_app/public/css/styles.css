@@ -133,7 +133,92 @@ body {
 }
 
 /*----------------------------------------------------------------------*/
+/*------------------------------stats.html Page----------------------------------------*/
 
+.stats-body {
+  font-family: 'Lucida Sans', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-body .navbar {
+  background-color: var(--primary);
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stats-body .navbar h1 {
+  font-size: 22px;
+  color: white;
+}
+
+.stats-body .navbar a {
+  color: #e9e4e4;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.stats-main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.stats-section {
+  width: 100%;
+  max-width: 650px;
+  background-color: #1c1c1c;
+  color: white;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  margin: 0 auto;
+}
+
+.stats-section h2 {
+  margin-bottom: 20px;
+}
+
+#stats-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  color: var(--text-color);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.stat-card h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.stat-card p {
+  font-size: 20px;
+  font-weight: bold;
+  word-wrap: break-word;
+}
+
+@media (max-width: 767px) {
+  #stats-container {
+    grid-template-columns: 1fr;
+  }
+}
 /*---------------------------index.html Page----------------------------*/
 :root {
     --background-color: #fbf6f6;

@@ -2,18 +2,23 @@ const { PrismaClient } = require('@prisma/client')
 const prisma = new PrismaClient()
 
 async function main() {
+  await prisma.comment.deleteMany();
+  await prisma.like.deleteMany();
+  await prisma.follow.deleteMany();
+  await prisma.post.deleteMany();
+  await prisma.user.deleteMany();
   const user1 = await prisma.user.create({
     data: {
       username: "user1",
       email: "user1@test.com",
-      password: "1234"
+      password: "123456"
     }
   })
 
   const post1 = await prisma.post.create({
     data: {
       content: "Hello world",
-      authorId: user1.id
+      userId: user1.id
     }
   })
 
