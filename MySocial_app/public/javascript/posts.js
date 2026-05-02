@@ -95,8 +95,6 @@ function loadPosts() {
   let posts = JSON.parse(localStorage.getItem("posts")) || [];
   const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
   if (!currentUser) return;
-  // const userPost = posts.filter((p) => p.userId === currentUser.id);
-  // userPost.forEach((post) => addPostToFeed(post));
   posts.forEach((post) => addPostToFeed(post));
 }
 

@@ -59,7 +59,8 @@ editForm.addEventListener("submit", function (e) {
     }
     return user;
   });
-
+  
+  localStorage.setItem("users",JSON.stringify(users));
   let posts = JSON.parse(localStorage.getItem("posts")) || [];
 
   posts = posts.map((post) => {
