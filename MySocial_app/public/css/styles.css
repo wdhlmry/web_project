@@ -1,11 +1,10 @@
 :root {
-  --shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-
-  --color-border: #222831; /* light lavender */
-  --text-color: black; /* soft purple text */
-  --background-color: #00ADB5; /* super light pastel */
-  --primary: #00ADB5; /* pastel purple */
-  --primary-dark: pink; /* slightly darker */
+    --background-color: #E5EEE4;
+    --text-color: #041d0d;
+    --primary: #ebc4c4;
+    --secondary:#C0E1D2;
+    --shadow: 0px 1px 9px rgba(0, 0, 0, 0.2);
+    --border-color: #F6F4E8;
 }
 * {
   margin: 0;
@@ -37,13 +36,13 @@ body {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   color: var(--text-color);
   /* background-image: url("../images/Fluid And Vibrant Abstract..."); */
-  background: linear-gradient(to bottom right, #fdfbff, #f3e8ff);
+  background: linear-gradient(to bottom right, #fdfbff, var(--secondary));
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .home_main {
-  background-color: pink;
+  background-color: var(--primary);
   margin: 70px auto;
   padding: 24px 0;
   width: 60%;
@@ -65,7 +64,7 @@ body {
 }
 
 .home_register {
-  background-color: var(--background-color);
+  background-color: var(--secondary);
   padding: 6px;
   border-radius: 8px;
   border: none;
@@ -84,7 +83,7 @@ body {
 }
 
 .home_login {
-  background-color: #ffffff;
+  background-color: var(--secondary);
   padding: 6px;
   border-radius: 8px;
   border: none;
@@ -109,7 +108,7 @@ body {
 .home_main pre {
   margin-left: -12rem;
   font-size: 40px;
-  color: #fefcef;
+  color: black;
   text-shadow: 2px 2px;
 }
 
@@ -119,7 +118,7 @@ body {
 
 .footer {
   width: 100%;
-  background-color: #795682;
+  background-color: var(--secondary);
   text-align: center;
   padding: 10px;
   margin-top: 20px;
@@ -221,11 +220,12 @@ body {
 }
 /*---------------------------index.html Page----------------------------*/
 :root {
-    --background-color: #fbf6f6;
-    --text-color: #250410;
-    --primary: #795682;
+    --background-color: #E5EEE4;
+    --text-color: #041d0d;
+    --primary: #ebcaca;
+    --secondary:#9BDCDC;
     --shadow: 0px 1px 9px rgba(0, 0, 0, 0.2);
-    --border-color: #ccc;
+    --border-color: #F6F4E8;
 }
 
 /* General body */
@@ -257,14 +257,14 @@ body {
 }
 
 .allUsers{
-  background-color: #eee5f9;
+  background-color: var(--primary);
   border-radius: 15px;
   padding: 15px;
   box-shadow: var(--shadow);
   margin: 15px;
 }
 .eachUser{
-  background-color: #e0ccf9;
+  background-color: var(--secondary);
   display: grid;
   border-radius: 5px;
   box-shadow: var(--shadow);
@@ -272,15 +272,16 @@ body {
   margin: 10px;
 }
 .eachUser button{
-  color: white;
-  background-color: #795682;
+  color: black;
+  background-color: var(--primary);
   border-radius: 10px;
   width: auto;
+
   margin: 10px;
 }
 /* Navbar */
 .index-body nav {
-    background-color: var(--primary);
+    background-color: var(--secondary);
     padding: 15px 25px;
     display: flex;
     justify-content: space-between;
@@ -290,13 +291,13 @@ body {
 
 .index-body nav h1 {
     font-size: 22px;
-    color: white;
+    color: black;
 }
 
 .index-body nav a,
 .navbar a,
 .navbar button {
-    color: #e9e4e4;
+    color: black;
     text-decoration: none;
     border: none;
     background: none;
@@ -325,8 +326,8 @@ body {
     gap: 10px;
     width: 100%;
     max-width: 600px;
-    background-color: #1c1c1c;
-    color: white;
+    background-color: var(--primary);
+    color: black;
     padding: 20px;
     border-radius: 20px;
 }
@@ -340,22 +341,22 @@ body {
     resize: none;
     font-family: inherit;
     color: var(--text-color);
-    background-color: #fff;
+    background-color: var(--secondary);
 }
 
 .create-post button {
     align-self: flex-end;
     padding: 10px 20px;
-    background-color: var(--primary);
-    color: white;
-    border: none;
+    background-color: var(--secondary);
+    color: black;
+    border: 2px solid var(--secondary);
     border-radius: 12px;
     cursor: pointer;
     transition: 0.2s;
 }
 
 .create-post button:hover {
-    background-color: #67182f;
+    background-color: var(--secondary);
 }
 
 #post-image {
@@ -378,7 +379,7 @@ body {
     gap: 10px;
     padding: 15px;
     border-radius: 12px;
-    background-color: #ffffff;
+    background-color: var(--primary);
     box-shadow: var(--shadow);
     width: 100%;
     height: auto;
@@ -445,9 +446,9 @@ body {
 
 .post-actions button {
     padding: 6px 12px;
-    background-color: var(--primary);
-    color: white;
-    border: none;
+    background-color: var(--secondary);
+    color: black;
+    border: 2px solid var(--secondary);
     border-radius: 12px;
     cursor: pointer;
     font-size: 13px;
@@ -455,13 +456,13 @@ body {
 }
 
 .post-actions button:hover {
-    background-color: #67182f;
+    background-color: var(--secondary);
 }
 
 /* Likes */
 .like-btn {
     margin-top: 10px;
-    background: #f3e8ff;
+    background: var(--secondary);
     border: none;
     padding: 6px 10px;
     border-radius: 10px;
@@ -502,18 +503,21 @@ body {
 }
 
 .comment-btn {
-    background: var(--primary);
-    color: white;
-    border: none;
+    background: var(--secondary);
+    color: black;
+    border: 2px solid var(--secondary);
     padding: 6px 10px;
     border-radius: 8px;
     cursor: pointer;
 }
+.comment-btn:hover{
+  background-color: var(--secondary);
+}
 
 /* Footer */
 footer {
-    background-color: var(--text-color);
-    color: var(--background-color);
+    background-color: var(--secondary);
+    color:black;
     text-align: center;
     padding: 15px;
     margin-top: auto;
@@ -521,7 +525,7 @@ footer {
 }
 
 .footer a {
-    color: var(--background-color);
+    color: black;
     text-decoration: none;
     margin: 0 10px;
 }
@@ -556,7 +560,7 @@ footer {
 }
 
 .delete-btn:hover {
-    background-color: #f0f0f0; /* Slight gray on hover */
+    background-color: var(--secondary); /* Slight gray on hover */
 }
 /*---------------------------logout.html Page----------------------------*/
 
@@ -567,7 +571,7 @@ footer {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #ffffff;
+  background-color:var(--background-color);
   font-family:
     "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -596,7 +600,7 @@ footer {
 .profile_header button {
   border: none;
   font-size: 30px;
-  background-color: white;
+  background-color: var(--background-color);
   color: var(--text-color);
   cursor: pointer;
 }
@@ -618,14 +622,14 @@ footer {
   height: 140px;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #e8dff5;
+  border: 4px solid var(--secondary);
   display: block;
   margin-bottom: 0;
 }
 .profile_info {
   text-align: center;
   width: 100%;
-  background-color: #ffffff;
+  background-color: var(--primary);
   border-radius: 24px;
   box-shadow: var(--shadow);
   padding: 35px 25px;
@@ -668,7 +672,7 @@ footer {
 }
 
 .settings_list li {
-  background-color: #d9c8ee;
+  background-color: var(--secondary);
   padding: 10px 22px;
   border-radius: 12px;
   text-align: center;
@@ -680,7 +684,7 @@ footer {
   color: var(--text-color);
 }
 
-#follow_button {
+/* #follow_button {
   background-color: #d9c8ee;
   color: #250410;
   padding: 10px 22px;
@@ -693,7 +697,7 @@ footer {
     "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   cursor: pointer;
-}
+} */
 
 .posts {
   border-radius: 15px;
@@ -767,7 +771,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
+  background-color: var(--background-color);
   font-family: "Lucida Sans", sans-serif;
   padding: 20px;
 }
@@ -816,7 +820,7 @@ input[type="submit"]:hover {
   height: 190px;
   object-fit: cover;
   border-radius: 50%;
-  border: 4px solid #e8dff5;
+  border: 4px solid var(--secondary);
 }
 
 .picture,
@@ -873,7 +877,7 @@ input[type="submit"]:hover {
   font-family:
     "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  background-color: #e8dff5;
+  background-color:var(--background-color);
   color: var(--text-color);
   min-height: 100vh;
   margin: 0;
@@ -909,7 +913,7 @@ input[type="submit"]:hover {
 
 .login-left,
 .register-left {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color:var(--primary);
   color: var(--text-color);
   padding: 50px 40px;
   display: flex;
@@ -1001,8 +1005,8 @@ input[type="submit"]:hover {
 
 .login-btn,
 .register-btn {
-  background-color: var(--text-color);
-  color: var(--background-color);
+  background-color: var(--secondary);
+  color: black;
   border: none;
   border-radius: 10px;
   padding: 14px;
