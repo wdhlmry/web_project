@@ -81,12 +81,13 @@ function savePost(post) {
       currentUser.posts.unshift(post.id);
       localStorage.setItem("currentUser", JSON.stringify(currentUser));
     }
-
     return true;
   } catch (error) {
     alert("Post could not be saved. The image may be too large.");
     return false;
   }
+
+
 }
 
 function loadPosts() {
@@ -95,7 +96,9 @@ function loadPosts() {
   let posts = JSON.parse(localStorage.getItem("posts")) || [];
   const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
   if (!currentUser) return;
-  posts.forEach((post) => addPostToFeed(post));
+  const followingIds = currentUser.following ? currentUser.following : [];
+  const showenPosts = posts.filter(p => followingIds.includes(p.userId)|| p.userId == currentUser.id);
+  showenPosts.forEach((post) => addPostToFeed(post));
 }
 
 function addPostToFeed(post) {
