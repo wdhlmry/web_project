@@ -299,5 +299,6 @@ function activeFollow(targetID){
   localStorage.setItem("currentUser",JSON.stringify(currentUser));
   localStorage.setItem("users",JSON.stringify(users));
   loadUsers();
+  loadPosts();
  
 }
