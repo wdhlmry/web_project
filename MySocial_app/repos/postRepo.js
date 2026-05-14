@@ -46,7 +46,7 @@ export default class PostRepo {
     });
   }
 
-  static async countPosts() {
+   async countPosts() {
     return prisma.post.count();
   }
 

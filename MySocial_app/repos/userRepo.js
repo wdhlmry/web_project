@@ -43,7 +43,7 @@ export default class UserRepo {
     });
   }
 
-  static async countUsers() {
+   async countUsers() {
     return prisma.user.count();
   }
 
